@@ -1,0 +1,2663 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lovia — ваш личный астролог</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style0.css">
+</head>
+<body>
+<!-- DEBUG: JS error overlay — показывает ошибки прямо на экране -->
+
+
+
+<!-- ============ SCREEN 0: WELCOME ============ -->
+<section class="screen" id="screen-welcome">
+  <!-- Звёздное поле -->
+  <svg class="welcome-stars" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle class="welcome-star" cx="120" cy="90" r="1.6" style="--tw:4.5s;--td:0s"/>
+    <circle class="welcome-star" cx="300" cy="160" r="1.1" style="--tw:5.5s;--td:1.2s"/>
+    <circle class="welcome-star" cx="500" cy="70" r="1.8" style="--tw:4s;--td:0.5s"/>
+    <circle class="welcome-star" cx="680" cy="200" r="1" style="--tw:6s;--td:2s"/>
+    <circle class="welcome-star" cx="860" cy="110" r="1.5" style="--tw:5s;--td:0.8s"/>
+    <circle class="welcome-star" cx="1050" cy="230" r="1.2" style="--tw:4.8s;--td:1.5s"/>
+    <circle class="welcome-star" cx="1240" cy="120" r="1.7" style="--tw:5.2s;--td:0.3s"/>
+    <circle class="welcome-star" cx="1330" cy="300" r="1" style="--tw:6.2s;--td:2.4s"/>
+    <circle class="welcome-star" cx="80" cy="340" r="1.3" style="--tw:5s;--td:1s"/>
+    <circle class="welcome-star" cx="240" cy="430" r="1" style="--tw:4.4s;--td:0.6s"/>
+    <circle class="welcome-star" cx="430" cy="380" r="1.5" style="--tw:5.8s;--td:1.8s"/>
+    <circle class="welcome-star" cx="760" cy="470" r="1.1" style="--tw:4.6s;--td:0.9s"/>
+    <circle class="welcome-star" cx="980" cy="400" r="1.4" style="--tw:5.4s;--td:2.2s"/>
+    <circle class="welcome-star" cx="1180" cy="470" r="1" style="--tw:6s;--td:1.3s"/>
+    <circle class="welcome-star" cx="160" cy="600" r="1.6" style="--tw:4.7s;--td:0.4s"/>
+    <circle class="welcome-star" cx="420" cy="680" r="1.1" style="--tw:5.6s;--td:1.7s"/>
+    <circle class="welcome-star" cx="700" cy="640" r="1.3" style="--tw:4.3s;--td:1.1s"/>
+    <circle class="welcome-star" cx="960" cy="700" r="1" style="--tw:6.4s;--td:2.6s"/>
+    <circle class="welcome-star" cx="1200" cy="650" r="1.5" style="--tw:5s;--td:0.7s"/>
+    <circle class="welcome-star" cx="1320" cy="780" r="1.2" style="--tw:4.9s;--td:1.9s"/>
+    <circle class="welcome-star" cx="320" cy="820" r="1" style="--tw:5.7s;--td:1.4s"/>
+    <circle class="welcome-star" cx="620" cy="840" r="1.4" style="--tw:4.2s;--td:0.2s"/>
+    <circle class="welcome-star" cx="900" cy="820" r="1.1" style="--tw:6.1s;--td:2.1s"/>
+  </svg>
+
+  <div class="welcome-inner">
+    <!-- Небесная карусель -->
+    <div class="welcome-celestial" aria-hidden="true">
+      <div class="welcome-ring r1"></div>
+      <div class="welcome-ring r2"></div>
+      <div class="welcome-ring r3"></div>
+      <div class="welcome-ring-spin">
+        <span class="welcome-orbit-dot"></span>
+      </div>
+      <div class="welcome-ring-spin rev" style="inset:26px">
+        <span class="welcome-orbit-dot small"></span>
+      </div>
+      <div class="welcome-core"></div>
+      <span class="welcome-spark" style="top:6px; left:18%; animation-delay:0s">✦</span>
+      <span class="welcome-spark" style="bottom:10px; right:14%; font-size:9px; animation-delay:1.4s">✦</span>
+      <span class="welcome-spark" style="top:42%; left:-6px; font-size:8px; animation-delay:0.7s">✦</span>
+    </div>
+
+    <div class="welcome-eyebrow">Ваш личный астролог</div>
+    <h1 class="welcome-logo">LOVIA</h1>
+    <p class="welcome-tag">Atelier de l'Âme</p>
+    <p class="welcome-sub">Натальная карта, матрица судьбы, расклады Таро и портрет вашей второй половинки — честные расчёты и живой язык, без эзотерического тумана.</p>
+
+    <div class="welcome-features">
+      <span class="welcome-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/></svg>
+        Натальная карта
+      </span>
+      <span class="welcome-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="12,3 21,12 12,21 3,12"/></svg>
+        Матрица судьбы
+      </span>
+      <span class="welcome-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+        Таро
+      </span>
+      <span class="welcome-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 20 C7 16, 4 12, 4 8 A4 4 0 0 1 12 7 A4 4 0 0 1 20 8 C20 12, 17 16, 12 20 Z"/></svg>
+        Портрет половинки
+      </span>
+    </div>
+
+    <button class="welcome-cta" id="welcomeEnterBtn" type="button">
+      Начать
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+
+  <!-- Парящие частицы -->
+  <span class="welcome-particle" style="left:12%; animation-duration:16s; animation-delay:0s">✦</span>
+  <span class="welcome-particle" style="left:28%; animation-duration:21s; animation-delay:3s; font-size:8px">✧</span>
+  <span class="welcome-particle" style="left:48%; animation-duration:18s; animation-delay:6s">✦</span>
+  <span class="welcome-particle" style="left:66%; animation-duration:23s; animation-delay:1.5s; font-size:7px">✧</span>
+  <span class="welcome-particle" style="left:82%; animation-duration:19s; animation-delay:4.5s">✦</span>
+  <span class="welcome-particle" style="left:92%; animation-duration:25s; animation-delay:8s; font-size:9px">✧</span>
+</section>
+
+<!-- ============ SCREEN 1: HOME ============ -->
+<section class="screen" id="screen-home">
+
+  <div class="home-v2" id="home-v2">
+
+  <!-- Tiny star field in the background -->
+  <svg class="home-v2-stars" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="#B8923D">
+      <circle cx="120" cy="80" r="1" opacity="0.18"/>
+      <circle cx="280" cy="160" r="0.8" opacity="0.12"/>
+      <circle cx="450" cy="60" r="1.2" opacity="0.16"/>
+      <circle cx="620" cy="180" r="0.6" opacity="0.10"/>
+      <circle cx="780" cy="100" r="1" opacity="0.14"/>
+      <circle cx="980" cy="220" r="0.8" opacity="0.12"/>
+      <circle cx="1180" cy="120" r="1" opacity="0.16"/>
+      <circle cx="1320" cy="260" r="0.6" opacity="0.10"/>
+      <circle cx="80" cy="320" r="0.7" opacity="0.10"/>
+      <circle cx="340" cy="380" r="1" opacity="0.12"/>
+      <circle cx="560" cy="320" r="0.5" opacity="0.08"/>
+      <circle cx="720" cy="440" r="0.9" opacity="0.12"/>
+      <circle cx="900" cy="380" r="0.6" opacity="0.08"/>
+      <circle cx="1100" cy="480" r="0.8" opacity="0.10"/>
+      <circle cx="1280" cy="420" r="0.5" opacity="0.08"/>
+      <circle cx="200" cy="520" r="0.7" opacity="0.08"/>
+      <circle cx="480" cy="620" r="1" opacity="0.10"/>
+      <circle cx="780" cy="560" r="0.6" opacity="0.08"/>
+      <circle cx="1020" cy="680" r="0.5" opacity="0.06"/>
+      <circle cx="1240" cy="600" r="0.8" opacity="0.08"/>
+    </g>
+  </svg>
+
+  <!-- Top nav -->
+  <nav class="nav-v2">
+    <div class="logo-v2-wrap">
+      <div class="logo-v2">LOVIA</div>
+      <div class="logo-v2-tag">ВАШ ЛИЧНЫЙ АСТРОЛОГ</div>
+    </div>
+    <div class="nav-v2-right">
+      <button class="nav-icon-btn" aria-label="Уведомления">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+      </button>
+      <button class="nav-icon-btn" aria-label="Настройки">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
+      <div class="nav-v2-avatar">YB</div>
+    </div>
+  </nav>
+
+  <div class="home-v2-container">
+    <!-- Greeting -->
+    <div class="greeting-v2">
+      <div class="greeting-v2-eyebrow">ВАШИ ПРАКТИКИ НА СЕГОДНЯ</div>
+      <h1 class="greeting-v2-h">Добро пожаловать, <em>Yevhenii</em></h1>
+      <p class="greeting-v2-sub">Сегодня <span id="todayDate">14 мая 2026</span> — выберите практику, чтобы начать</p>
+    </div>
+
+    <!-- Today's hero: lunar info + advice of the day -->
+    <div class="today-hero">
+      <div class="today-moon" id="todayMoonIcon">
+        <!-- SVG injected by JS — depends on real lunar phase -->
+      </div>
+      <div>
+        <div class="today-meta-eyebrow">СЕГОДНЯ</div>
+        <h3 class="today-meta-title" id="todayMoonTitle">Растущая Луна <em>в Тельце</em></h3>
+        <p class="today-meta-desc" id="todayMoonDesc">Хорошее время для укрепления того, что уже создано. Финансовые решения, телесные практики, всё, что связано с устойчивостью — сегодня поддерживается.</p>
+      </div>
+      <div class="today-advice">
+        <div class="today-advice-label">СОВЕТ ДНЯ</div>
+        <p class="today-advice-text" id="todayAdviceText">Не начинайте новое — углубите начатое</p>
+      </div>
+    </div>
+
+    <!-- Asymmetric grid: featured card + 4 small cards -->
+    <div class="home-v2-grid">
+
+      <!-- Featured card -->
+      <div class="featured-card" data-practice-v2="reading">
+        <div class="featured-eyebrow">РЕКОМЕНДУЕМ СЕГОДНЯ</div>
+        <svg class="featured-icon" viewBox="0 0 88 88" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="18" y="14" width="22" height="34" rx="2" transform="rotate(-12 29 31)"/>
+          <rect x="33" y="20" width="22" height="34" rx="2"/>
+          <rect x="48" y="14" width="22" height="34" rx="2" transform="rotate(12 59 31)"/>
+          <rect x="30" y="52" width="22" height="34" rx="2" transform="rotate(-6 41 69)"/>
+          <circle cx="44" cy="37" r="3" fill="currentColor" stroke="none"/>
+          <circle cx="41" cy="69" r="2" fill="currentColor" stroke="none"/>
+        </svg>
+        <h2 class="featured-title">Индивидуальный расклад</h2>
+        <p class="featured-desc">Луна в Тельце — благоприятный момент задать вопросы о ресурсах, телесности, материальной базе. Карты ответят точнее обычного.</p>
+        <div class="featured-cta">
+          Начать расклад
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </div>
+
+      <!-- 2x2 small cards -->
+      <div class="small-cards">
+
+        <div class="small-card" data-practice-v2="natal">
+          <svg class="small-card-icon" viewBox="0 0 40 40" fill="none" stroke="#8B7449" stroke-width="1.2" stroke-linecap="round">
+            <circle cx="20" cy="20" r="14"/>
+            <circle cx="20" cy="20" r="9"/>
+            <circle cx="20" cy="20" r="4"/>
+            <line x1="6" y1="20" x2="34" y2="20"/>
+            <line x1="20" y1="6" x2="20" y2="34"/>
+            <line x1="10" y1="10" x2="30" y2="30"/>
+            <line x1="30" y1="10" x2="10" y2="30"/>
+            <circle cx="20" cy="6" r="1.5" fill="#B8923D" stroke="none"/>
+            <circle cx="34" cy="20" r="1.5" fill="#B8923D" stroke="none"/>
+          </svg>
+          <h3 class="small-card-title">Натальная карта</h3>
+          <p class="small-card-desc">Планеты в момент рождения</p>
+          <div class="small-card-meta">~ 5 МИНУТ</div>
+        </div>
+
+        <div class="small-card" data-practice-v2="matrix">
+          <svg class="small-card-icon" viewBox="0 0 40 40" fill="none" stroke="#8B7449" stroke-width="1.2" stroke-linecap="round">
+            <polygon points="20,4 36,20 20,36 4,20"/>
+            <polygon points="20,10 30,20 20,30 10,20"/>
+            <line x1="20" y1="4" x2="20" y2="36"/>
+            <line x1="4" y1="20" x2="36" y2="20"/>
+            <circle cx="20" cy="20" r="2.5" fill="#B8923D" stroke="none"/>
+          </svg>
+          <h3 class="small-card-title">Матрица судьбы</h3>
+          <p class="small-card-desc">Код по дате рождения</p>
+          <div class="small-card-meta">~ 3 МИНУТЫ</div>
+        </div>
+
+        <div class="small-card" data-practice-v2="portrait">
+          <svg class="small-card-icon" viewBox="0 0 40 40" fill="none" stroke="#8B7449" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 33 C 12 28, 6 22, 6 15 C 6 10, 10 6, 14 6 C 17 6, 19 8, 20 11 C 21 8, 23 6, 26 6 C 30 6, 34 10, 34 15 C 34 22, 28 28, 20 33 Z"/>
+            <circle cx="14" cy="14" r="1.5" fill="#B8923D" stroke="none"/>
+            <circle cx="26" cy="14" r="1.5" fill="#B8923D" stroke="none"/>
+          </svg>
+          <h3 class="small-card-title">Портрет половинки</h3>
+          <p class="small-card-desc">Образ суженого</p>
+          <div class="small-card-meta">~ 7 МИНУТ</div>
+        </div>
+
+        <div class="small-card" data-practice-v2="reading-alt">
+          <svg class="small-card-icon" viewBox="0 0 40 40" fill="none" stroke="#8B7449" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="5" width="9" height="14" rx="1"/>
+            <rect x="22" y="8" width="9" height="14" rx="1" transform="rotate(8 26.5 15)"/>
+            <rect x="14" y="21" width="9" height="14" rx="1" transform="rotate(-6 18.5 28)"/>
+          </svg>
+          <h3 class="small-card-title">Все расклады</h3>
+          <p class="small-card-desc">Таро по любому вопросу</p>
+          <div class="small-card-meta">~ 4 МИНУТЫ</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!--
+  ВАЖНО: Это демо-плейсхолдеры. Перед публикацией нужно либо:
+  (а) заменить на реальные отзывы с явного согласия авторов,
+  (б) удалить блок до получения настоящих отзывов.
+  Фейковые отзывы — это нечестная коммерческая практика по EU UCPD.
+-->
+<section class="testimonials-section" id="testimonials">
+
+  <div class="testimonials-divider">
+    <span class="testimonials-eyebrow">ОТЗЫВЫ</span>
+    <h2 class="testimonials-title">Что говорят <em>о нас</em></h2>
+  </div>
+
+  <div class="testimonial-stage" id="testimonialStage">
+
+    <button class="testimonial-nav prev" id="testPrev" aria-label="Предыдущий отзыв">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="testimonial-nav next" id="testNext" aria-label="Следующий отзыв">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <div class="testimonial-track" id="testimonialTrack">
+
+      <div class="testimonial-card active" data-test-idx="0">
+        <span class="testimonial-tag">НАТАЛЬНАЯ КАРТА</span>
+        <p class="testimonial-text">Впервые встретила астрологический сервис, который не сваливается в эзотерический туман. Конкретные позиции планет, понятная интерпретация — и при этом язык не сухой, а живой. Прочитала про свою Луну в Скорпионе и поняла себя глубже, чем за пять лет терапии.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-initial">М</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Мария К.</div>
+            <div class="testimonial-author-meta">МОСКВА · 38 ЛЕТ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-test-idx="1">
+        <span class="testimonial-tag">МАТРИЦА СУДЬБЫ</span>
+        <p class="testimonial-text">Я скептически отношусь к нумерологии, но матрица здесь сделана умно. Видно, что под цифрами — реальный алгоритм, а не подбор красивых слов. Совпадение центра и точки кармы заставило меня задуматься о вещах, которые я обходила годами.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-initial">А</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Анна Л.</div>
+            <div class="testimonial-author-meta">ПРАГА · 31 ГОД</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-test-idx="2">
+        <span class="testimonial-tag">ИНДИВИДУАЛЬНЫЙ РАСКЛАД</span>
+        <p class="testimonial-text">Удивительно, насколько точно карты отвечают на конкретный вопрос. Спрашивала о переходе в новую сферу, выпали Башня — Колесница — Звезда. Через два месяца поняла: всё именно так и развернулось. Не предсказание, а зеркало для собственных решений.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-initial">Е</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Елена В.</div>
+            <div class="testimonial-author-meta">КИЕВ · 42 ГОДА</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-test-idx="3">
+        <span class="testimonial-tag">НАТАЛЬНАЯ КАРТА</span>
+        <p class="testimonial-text">Использовала на кризисе, когда казалось, что всё разваливается. Раздел про аспекты показал, что моя Луна в квадрате к Сатурну — это не "плохо", а конструкция, с которой можно работать. Помогло перестать винить себя за то, что я "слишком".</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-initial">О</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Ольга Д.</div>
+            <div class="testimonial-author-meta">БЕРЛИН · 34 ГОДА</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-test-idx="4">
+        <span class="testimonial-tag">МАТРИЦА СУДЬБЫ</span>
+        <p class="testimonial-text">Прошла десяток сервисов с матрицами, и большинство — это копипаст одних и тех же текстов. Здесь впервые увидела, как точки матрицы связаны между собой: миссия + точка денег + кармический хвост складываются в одну осмысленную картину. И язык спокойный, без надрыва.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-initial">Н</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Наталья П.</div>
+            <div class="testimonial-author-meta">АЛМАТЫ · 29 ЛЕТ</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="testimonial-dots" id="testimonialDots">
+      <button class="testimonial-dot active" data-dot-idx="0" aria-label="Отзыв 1"></button>
+      <button class="testimonial-dot" data-dot-idx="1" aria-label="Отзыв 2"></button>
+      <button class="testimonial-dot" data-dot-idx="2" aria-label="Отзыв 3"></button>
+      <button class="testimonial-dot" data-dot-idx="3" aria-label="Отзыв 4"></button>
+      <button class="testimonial-dot" data-dot-idx="4" aria-label="Отзыв 5"></button>
+    </div>
+
+    <div class="testimonial-progress">
+      <div class="testimonial-progress-bar" id="testProgressBar"></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+</div>
+
+<!-- ============ SITE FOOTER (home screen) ============ -->
+<footer class="site-footer" id="siteFooter">
+  <div class="site-footer-inner">
+    <div class="site-footer-grid">
+
+      <div class="site-footer-brand-col">
+        <div class="site-footer-logo">
+          <div class="site-footer-logo-mark"></div>
+          <div class="site-footer-logo-text">LOVIA</div>
+        </div>
+        <div class="site-footer-tagline">
+          Atelier de l'Âme — портреты второй половинки,<br/>написанные звёздами.
+        </div>
+        <div class="site-footer-socials">
+          <a class="site-footer-social" href="#" aria-label="X (Twitter)" data-info-topic="social-x">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.55 7.49L22 22h-6.78l-4.78-6.26L4.96 22H2.2l7.02-8.02L2 2h6.91l4.32 5.71L18.244 2Zm-2.38 18h1.88L8.24 4H6.27l9.594 16Z"/></svg>
+          </a>
+          <a class="site-footer-social" href="#" aria-label="Instagram" data-info-topic="social-instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a class="site-footer-social" href="#" aria-label="Facebook" data-info-topic="social-facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.6H7.7V14h2.7v8h3.1Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="site-footer-col-title">Поддержка</div>
+        <button type="button" class="site-footer-link-pill" data-info-topic="support-chat">
+          Служба поддержки
+          <span class="site-footer-link-pill-sub">Мы онлайн</span>
+        </button>
+        <div class="site-footer-links">
+          <button type="button" class="site-footer-link" data-info-topic="how-to-cancel">Как отменить</button>
+          <button type="button" class="site-footer-link" data-info-topic="contact-us">Связаться с нами</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="site-footer-col-title">Правовая информация</div>
+        <div class="site-footer-links">
+          <button type="button" class="site-footer-link" data-info-topic="terms">Условия и положения</button>
+          <button type="button" class="site-footer-link" data-info-topic="refund">Политика возврата</button>
+          <button type="button" class="site-footer-link" data-info-topic="privacy">Конфиденциальность</button>
+          <button type="button" class="site-footer-link" data-info-topic="cookies">Файлы cookie</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="site-footer-col-title">Ресурсы</div>
+        <div class="site-footer-links">
+          <button type="button" class="site-footer-link" data-info-topic="help-center">Справочный центр</button>
+          <button type="button" class="site-footer-link" data-info-topic="pricing">Цены и подписки</button>
+          <button type="button" class="site-footer-link" data-info-topic="about">О нас</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="site-footer-bottom">
+      <div class="site-footer-copy">
+        © 2024–2026 Atelier de l'Âme — Lovia™. All rights reserved.<br/>
+        Все товарные знаки принадлежат их соответствующим владельцам.
+      </div>
+      <div class="site-footer-meta">
+        <span class="site-footer-pay visa">VISA</span>
+        <span class="site-footer-pay">MC</span>
+        <span class="site-footer-pay">PayPal</span>
+        <span class="site-footer-pay">Pay</span>
+        <span class="site-footer-pay">G Pay</span>
+        <div class="site-footer-lang-wrap">
+          <button type="button" class="site-footer-lang" id="siteFooterLang" aria-haspopup="true" aria-expanded="false" aria-label="Сменить язык">
+            <span class="site-footer-lang-flag" id="siteFooterLangFlag" data-flag="ru"></span>
+            <span id="siteFooterLangCode">RU</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="site-footer-lang-menu" id="siteFooterLangMenu" role="menu">
+            <button type="button" class="site-footer-lang-option active" data-lang="ru" role="menuitem">
+              <span class="site-footer-lang-flag" data-flag="ru"></span>
+              <span>Русский</span>
+            </button>
+            <button type="button" class="site-footer-lang-option" data-lang="en" role="menuitem">
+              <span class="site-footer-lang-flag" data-flag="en"></span>
+              <span>English</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</section>
+
+<!-- ============ INFO MODAL (футер ссылки) ============ -->
+<div class="info-modal-backdrop" id="infoModalBackdrop" role="dialog" aria-labelledby="infoModalTitle" aria-hidden="true">
+  <div class="info-modal-card">
+    <div class="info-modal-head">
+      <h2 class="info-modal-title" id="infoModalTitle">Заголовок</h2>
+      <button class="info-modal-close" id="infoModalClose" aria-label="Закрыть">×</button>
+    </div>
+    <div class="info-modal-body" id="infoModalBody">
+      <!-- контент инжектится JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ============ CANCEL SUBSCRIPTION MODAL ============ -->
+<div class="cancelsub-backdrop" id="cancelSubBackdrop" role="dialog" aria-labelledby="cancelSubTitle" aria-hidden="true">
+  <div class="cancelsub-card" id="cancelSubCard">
+    <button class="cancelsub-close" id="cancelSubClose" aria-label="Закрыть">×</button>
+
+    <!-- Шаг подтверждения -->
+    <div class="cancelsub-main">
+      <div class="cancelsub-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.3 3.6 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/>
+          <path d="M12 9v4M12 17h.01"/>
+        </svg>
+      </div>
+      <h2 class="cancelsub-title" id="cancelSubTitle">Отменить подписку?</h2>
+      <p class="cancelsub-text">Жаль, что вы уходите. Вы потеряете доступ к полным разборам натальной карты, матрицы судьбы, Кельтскому кресту и безлимитному чату с AI.</p>
+      <div class="cancelsub-note">
+        Доступ к Pro сохранится до конца оплаченного периода — <strong>до 24 мая 2026</strong>. Авто-продление прекратится, повторных списаний не будет. Уже созданные расчёты и портреты останутся в вашем кабинете.
+      </div>
+      <div class="cancelsub-actions">
+        <button class="cancelsub-keep" id="cancelSubKeep">Оставить подписку</button>
+        <button class="cancelsub-confirm" id="cancelSubConfirm">Всё равно отменить</button>
+      </div>
+    </div>
+
+    <!-- Шаг успеха -->
+    <div class="cancelsub-success">
+      <div class="cancelsub-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h2 class="cancelsub-title">Подписка отменена</h2>
+      <p class="cancelsub-text">Доступ к Pro сохраняется до <strong>24 мая 2026</strong>. После этой даты аккаунт перейдёт на бесплатный план. Передумали? Подписку можно возобновить в любой момент.</p>
+      <div class="cancelsub-actions">
+        <button class="cancelsub-keep" id="cancelSubDone">Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SPEEDUP HINT POPUP (после оплаты на главной) ============ -->
+<div class="speeduptip-backdrop" id="speedupTipBackdrop" role="dialog" aria-labelledby="speedupTipTitle" aria-hidden="true">
+  <div class="speeduptip-card">
+    <button class="speeduptip-close" id="speedupTipClose" aria-label="Закрыть">×</button>
+    <div class="speeduptip-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 2 L4 14 L12 14 L11 22 L20 10 L12 10 L13 2 Z"/>
+      </svg>
+    </div>
+    <div class="speeduptip-eyebrow">Заказ принят</div>
+    <h2 class="speeduptip-title" id="speedupTipTitle">Хотите получить портрет <em>раньше</em>?</h2>
+    <p class="speeduptip-text">Стандартно портрет готовится 24 часа. В личном кабинете есть кнопка <strong>«Ускорить»</strong> — она ставит ваш заказ в приоритетную очередь, и портрет будет готов всего за 30 минут.</p>
+    <div class="speeduptip-row">
+      <div class="speeduptip-row-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="13" r="8"/><path d="M 12 9 L 12 13 L 15 15"/><path d="M 9 2 L 15 2"/>
+        </svg>
+      </div>
+      <div class="speeduptip-row-text">
+        Личный кабинет → блок <strong>«Ближайшие практики»</strong> → кнопка <strong>«Ускорить»</strong> (3,99 €). Готовность за 30 минут вместо 24 часов.
+      </div>
+    </div>
+    <div class="speeduptip-actions">
+      <button class="speeduptip-primary" id="speedupTipGoToDash" type="button">
+        Перейти в личный кабинет
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <button class="speeduptip-secondary" id="speedupTipDismiss" type="button">Подожду 24 часа</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCREEN 2: LOGIN ============ -->
+<section class="screen" id="screen-login">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="logo">LOVIA</div>
+        <div class="login-brand-tag">ВАШ ЛИЧНЫЙ АСТРОЛОГ</div>
+      </div>
+      <h2 class="login-h">С возвращением</h2>
+      <p class="login-sub">Войдите, чтобы продолжить свой путь</p>
+
+      <div class="field">
+        <label class="field-label">EMAIL</label>
+        <input class="input" type="email" placeholder="anna@example.com" value="anna@example.com">
+      </div>
+      <div class="field">
+        <label class="field-label">ПАРОЛЬ</label>
+        <input class="input" type="password" placeholder="••••••••" value="passwordhere">
+      </div>
+      <div class="forgot"><a href="#">Забыли пароль?</a></div>
+      <button class="btn-primary">Войти</button>
+
+      <div class="divider">ИЛИ ВОЙДИТЕ ЧЕРЕЗ</div>
+
+      <div class="social-row">
+        <button class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/></svg>
+          Google
+        </button>
+        <button class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          Apple
+        </button>
+      </div>
+
+      <div class="login-foot">Ещё нет аккаунта? <a href="#">Создать</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREEN 3: DASHBOARD ============ -->
+
+
+<!-- ============ SCREEN: NATAL QUIZ ============ -->
+<section class="screen" id="screen-natal-quiz">
+
+  <div class="quiz-topbar">
+    <div class="quiz-topbar-inner">
+      <button class="quiz-back" id="quizBackBtn" aria-label="Назад">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="logo-mini">LOVIA</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="step-counter" id="stepCounter">1 / 4</div>
+    </div>
+  </div>
+
+  <div class="quiz-wrap">
+
+    <!-- Q1: Welcome -->
+    <div class="quiz-step active" data-qstep="1">
+      <svg class="welcome-icon" viewBox="0 0 92 92" fill="none" stroke="#8B7449" stroke-width="1.2" stroke-linecap="round">
+        <circle cx="46" cy="46" r="36"/>
+        <circle cx="46" cy="46" r="24"/>
+        <circle cx="46" cy="46" r="10"/>
+        <line x1="10" y1="46" x2="82" y2="46"/>
+        <line x1="46" y1="10" x2="46" y2="82"/>
+        <line x1="20.5" y1="20.5" x2="71.5" y2="71.5"/>
+        <line x1="71.5" y1="20.5" x2="20.5" y2="71.5"/>
+        <circle cx="46" cy="10" r="2.5" fill="#B8923D" stroke="none"/>
+        <circle cx="82" cy="46" r="2.5" fill="#B8923D" stroke="none"/>
+        <circle cx="22" cy="68" r="2.5" fill="#B8923D" stroke="none"/>
+        <circle cx="68" cy="22" r="2" fill="#B8923D" stroke="none"/>
+        <circle cx="22" cy="24" r="2" fill="#B8923D" stroke="none"/>
+      </svg>
+      <div class="quiz-eyebrow">НАТАЛЬНАЯ КАРТА</div>
+      <h1 class="quiz-h">Карта <em>момента</em> вашего рождения</h1>
+      <p class="quiz-sub">Расположение планет, домов и аспектов в день, когда вы появились на свет. Основа вашего характера, талантов и жизненного пути.</p>
+
+      <div class="welcome-points">
+        <div class="welcome-point">
+          <div class="welcome-point-num">1</div>
+          <div class="welcome-point-text">
+            <strong>Дата рождения</strong>
+            Определяет положение Солнца и знак, под которым вы родились
+          </div>
+        </div>
+        <div class="welcome-point">
+          <div class="welcome-point-num">2</div>
+          <div class="welcome-point-text">
+            <strong>Время рождения</strong>
+            Задаёт асцендент и расположение домов гороскопа
+          </div>
+        </div>
+        <div class="welcome-point">
+          <div class="welcome-point-num">3</div>
+          <div class="welcome-point-text">
+            <strong>Место рождения</strong>
+            Географические координаты для точного расчёта эфемерид
+          </div>
+        </div>
+      </div>
+
+      <button class="q-btn-primary" onclick="quizNext()">Начать расчёт</button>
+    </div>
+
+    <!-- Q2: Date -->
+    <div class="quiz-step" data-qstep="2">
+      <div class="quiz-eyebrow">ШАГ 1 ИЗ 3</div>
+      <h1 class="quiz-h">Когда вы <em>родились?</em></h1>
+      <p class="quiz-sub">Укажите вашу дату рождения по григорианскому календарю</p>
+
+      <div class="q-field">
+        <label class="q-field-label">ДАТА РОЖДЕНИЯ</label>
+        <div class="q-field-row">
+          <select class="q-select" id="birthDay"><option value="">День</option></select>
+          <select class="q-select" id="birthMonth">
+            <option value="">Месяц</option>
+            <option value="1">Январь</option><option value="2">Февраль</option><option value="3">Март</option>
+            <option value="4">Апрель</option><option value="5">Май</option><option value="6">Июнь</option>
+            <option value="7">Июль</option><option value="8">Август</option><option value="9">Сентябрь</option>
+            <option value="10">Октябрь</option><option value="11">Ноябрь</option><option value="12">Декабрь</option>
+          </select>
+          <select class="q-select" id="birthYear"><option value="">Год</option></select>
+        </div>
+      </div>
+
+      <button class="q-btn-primary" id="step2Btn" onclick="quizNext()" disabled>Продолжить</button>
+    </div>
+
+    <!-- Q3: Time -->
+    <div class="quiz-step" data-qstep="3">
+      <div class="quiz-eyebrow">ШАГ 2 ИЗ 3</div>
+      <h1 class="quiz-h">Во сколько вы <em>родились?</em></h1>
+      <p class="quiz-sub">Точное время критически важно для расчёта асцендента и домов. Даже ошибка в 15 минут может изменить интерпретацию</p>
+
+      <div class="time-options">
+        <div class="time-option" data-time-mode="exact" onclick="selectTimeMode(this)">Точно знаю</div>
+        <div class="time-option" data-time-mode="approx" onclick="selectTimeMode(this)">Примерно</div>
+        <div class="time-option" data-time-mode="unknown" onclick="selectTimeMode(this)">Не знаю</div>
+      </div>
+
+      <div id="timeFields" style="display: none;">
+        <div class="q-field">
+          <label class="q-field-label">ВРЕМЯ РОЖДЕНИЯ</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <select class="q-select" id="birthHour"><option value="">Час</option></select>
+            <select class="q-select" id="birthMinute"><option value="">Минуты</option></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-unknown-notice" id="unknownNotice">
+        Без точного времени мы построим солнечную карту — это полный анализ позиций планет, но без расчёта домов и асцендента. Вы сможете дополнить время позже в настройках.
+      </div>
+
+      <button class="q-btn-primary" id="step3Btn" onclick="quizNext()" disabled>Продолжить</button>
+    </div>
+
+    <!-- Q4: City -->
+    <div class="quiz-step" data-qstep="4">
+      <div class="quiz-eyebrow">ШАГ 3 ИЗ 3</div>
+      <h1 class="quiz-h">Где вы <em>родились?</em></h1>
+      <p class="quiz-sub">Город рождения для определения географических координат и часового пояса</p>
+
+      <div class="q-field">
+        <label class="q-field-label">ГОРОД РОЖДЕНИЯ</label>
+        <div class="city-wrap">
+          <input class="q-input" type="text" id="birthCity" placeholder="Начните вводить город..." autocomplete="off">
+          <div class="city-suggest" id="citySuggest"></div>
+        </div>
+      </div>
+
+      <button class="q-btn-primary" id="step4Btn" onclick="startCalculation()" disabled>Построить карту</button>
+    </div>
+
+    <!-- Q5: Loading -->
+    <div class="quiz-step" data-qstep="5">
+      <div class="loading-stage">
+        <svg class="loading-wheel" viewBox="0 0 140 140" fill="none" stroke="#B8923D" stroke-width="1" stroke-linecap="round">
+          <circle cx="70" cy="70" r="60" stroke-opacity="0.3"/>
+          <circle cx="70" cy="70" r="42" stroke-opacity="0.5"/>
+          <circle cx="70" cy="70" r="20"/>
+          <line x1="10" y1="70" x2="130" y2="70" stroke-opacity="0.3"/>
+          <line x1="70" y1="10" x2="70" y2="130" stroke-opacity="0.3"/>
+          <line x1="27.5" y1="27.5" x2="112.5" y2="112.5" stroke-opacity="0.2"/>
+          <line x1="112.5" y1="27.5" x2="27.5" y2="112.5" stroke-opacity="0.2"/>
+          <circle cx="70" cy="10" r="3" fill="#B8923D" stroke="none"/>
+          <circle cx="130" cy="70" r="3" fill="#B8923D" stroke="none"/>
+          <circle cx="70" cy="130" r="3" fill="#B8923D" stroke="none"/>
+          <circle cx="10" cy="70" r="3" fill="#B8923D" stroke="none"/>
+          <circle cx="105" cy="35" r="2" fill="#B8923D" stroke="none"/>
+          <circle cx="35" cy="105" r="2" fill="#B8923D" stroke="none"/>
+        </svg>
+        <h2 class="quiz-h" style="font-size: 28px;">Строим вашу карту</h2>
+        <p class="quiz-sub">Рассчитываем позиции планет и аспекты на момент вашего рождения</p>
+
+        <div class="loading-steps">
+          <div class="loading-step" id="ls1"><div class="loading-step-dot"></div><span>Перевод в Universal Time</span></div>
+          <div class="loading-step" id="ls2"><div class="loading-step-dot"></div><span>Расчёт эфемерид планет</span></div>
+          <div class="loading-step" id="ls3"><div class="loading-step-dot"></div><span>Определение домов и асцендента</span></div>
+          <div class="loading-step" id="ls4"><div class="loading-step-dot"></div><span>Поиск аспектов</span></div>
+          <div class="loading-step" id="ls5"><div class="loading-step-dot"></div><span>Подготовка интерпретации</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="screen" id="screen-natal-result">
+<div class="topnav">
+  <div class="topnav-inner">
+    <div class="topnav-left">
+      <button class="back-link" aria-label="Назад">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="logo">LOVIA</div>
+    </div>
+    <div class="topnav-right">
+      <button class="icon-btn" aria-label="Скачать">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Сохранить">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Поделиться">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </button>
+      <div class="avatar">YB</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="eyebrow">ВАША НАТАЛЬНАЯ КАРТА</div>
+  <h1 class="page-h"><em>Yevhenii,</em> вот ваша карта</h1>
+  <p class="page-meta">7 июля 1999<span class="dot"></span>23:00<span class="dot"></span>Киев, Украина</p>
+</div>
+
+<div class="depth-selector">
+  <div class="depth-inner">
+    <button class="depth-btn active" data-depth="brief">КРАТКО</button>
+    <button class="depth-btn" data-depth="full">РАЗВЁРНУТО<span class="depth-badge">PRO</span></button>
+    <button class="depth-btn" data-depth="deep">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="depth-lock"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      ГЛУБОКО<span class="depth-badge">PREMIUM</span>
+    </button>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+    <div class="tabs-mode-bar">
+      <div class="tabs">
+        <button class="tab active" data-tab="summary">Сводка</button>
+    <button class="tab" data-tab="transits">Сейчас<span class="tab-new">NEW</span></button>
+    <button class="tab" data-tab="chart">Карта</button>
+    <button class="tab" data-tab="planets">Планеты<span class="tab-count">10</span></button>
+    <button class="tab" data-tab="houses">Дома<span class="tab-count">12</span></button>
+    <button class="tab" data-tab="aspects">Аспекты<span class="tab-count">22</span></button>
+    <button class="tab" data-tab="elements">Стихии</button>
+    <button class="tab" data-tab="strength">Сила планет</button>
+    <button class="tab" data-tab="generation">Поколение</button>
+      </div>
+      <div class="header-mode-toggle">
+        <button class="header-mode-btn" data-mode="simple">
+          <svg class="header-mode-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4"/><circle cx="6" cy="6" r="1" fill="currentColor"/></svg>
+          ПРОСТО
+        </button>
+        <button class="header-mode-btn active" data-mode="detailed">
+          <svg class="header-mode-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4"/><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="6" r="1" fill="currentColor"/></svg>
+          ПОДРОБНО
+        </button>
+      </div>
+    </div>
+  </div>
+
+<div class="content">
+
+  <!-- SUMMARY -->
+  <div class="tab-panel active" data-panel="summary">
+    <div class="ai-tag">ИНТЕРПРЕТАЦИЯ AI · CLAUDE SONNET 4 · ОБНОВЛЕНО 14.05.2026</div>
+
+      
+
+    <div class="summary-grid">
+      <div class="key-card">
+        <div class="key-label">СОЛНЦЕ</div>
+        <div class="key-symbol">☉</div>
+        <div class="key-sign">Рак</div>
+        <div class="key-degree">15.3°</div>
+      </div>
+      <div class="key-card">
+        <div class="key-label">ЛУНА</div>
+        <div class="key-symbol">☽</div>
+        <div class="key-sign">Телец</div>
+        <div class="key-degree">2.7°</div>
+      </div>
+      <div class="key-card">
+        <div class="key-label">АСЦЕНДЕНТ</div>
+        <div class="key-symbol">↑</div>
+        <div class="key-sign">Водолей</div>
+        <div class="key-degree">29.1°</div>
+      </div>
+    </div>
+
+    <div class="configurations">
+      <div class="config-h">КЛЮЧЕВЫЕ КОНФИГУРАЦИИ ВАШЕЙ КАРТЫ</div>
+      <div class="config-list">
+        <div class="config-item">
+          <div class="config-glyph">⚯</div>
+          <div>
+            <p class="config-title">Стеллиум в Тельце</p>
+            <p class="config-desc">Луна, Юпитер, Сатурн во 2 доме — мощный ресурсный фундамент</p>
+          </div>
+        </div>
+        <div class="config-item">
+          <div class="config-glyph">∇</div>
+          <div>
+            <p class="config-title">Стеллиум в Водолее</p>
+            <p class="config-desc">Асцендент, Уран, Нептун — водолейская идентичность</p>
+          </div>
+        </div>
+        <div class="config-item">
+          <div class="config-glyph">⚹</div>
+          <div>
+            <p class="config-title">Точный трин 0.3°</p>
+            <p class="config-desc">Меркурий–Плутон — интеллектуальная глубина</p>
+          </div>
+        </div>
+        <div class="config-item">
+          <div class="config-glyph">☍</div>
+          <div>
+            <p class="config-title">T-квадрат с Юпитером</p>
+            <p class="config-desc">Марс–Юпитер–Нептун в напряжённой динамике роста</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-section">
+        <h2 class="summary-h">Ядро личности</h2>
+        <p class="summary-text">Солнце в Раке в 5 доме — это про творчество, которое идёт из эмоций, а не из техники. Но у вас есть редкий нюанс: Солнце в <em>секстиле с Сатурном (орб 0.4°)</em>, аспект почти точный. Это переворачивает классическую картину Рака.</p>
+        <p class="summary-text">Обычно Рак-Солнце прячется, отступает в раковину. Вы — нет. Вам сложно сидеть в эмоциях без действия, вы привычно конвертируете чувство в задачу, в проект, в результат. Эмпатия + дисциплина — редкое сочетание, и оно даёт вам несправедливое преимущество в делах, требующих и понимания людей, и упорства.</p>
+        <div class="insight-pull">
+          <p>"У вас тонкая эмоциональная природа, упакованная в практичную форму. Это не противоречие — это ваша конструкция."</p>
+        </div>
+      </div>
+
+      <div class="summary-section">
+        <h2 class="summary-h">Как вы проявляетесь внешне</h2>
+        <p class="summary-text">Асцендент в Водолее на 29° — это финальный градус знака, очень мощная точка. Люди при первом контакте видят <strong>независимость, нестандартность мышления, отстранённость</strong>. Вы не вписываетесь в шаблоны, и это считывается мгновенно.</p>
+        <p class="summary-text">Любопытно, что внешняя водолейская "холодность" полностью противоречит внутреннему Раку. Вы кажетесь дальше, чем есть. Это работает как защита — близких людей вы выбираете сами, чужие не пробивают броню.</p>
+      </div>
+
+      <div class="summary-section">
+        <h2 class="summary-h">Главная динамика карты</h2>
+        <p class="summary-text">Самая яркая конфигурация — <em>Луна в оппозиции к Марсу в Скорпионе</em> (орб 1.8°, очень точный). Это означает, что когда вам плохо эмоционально, вы не "грустите по-рачьи" — вы атакуете. Себя, ситуацию, иногда другого человека.</p>
+        <p class="summary-text">Знать этот механизм критически важно: следующий раз, когда захочется резко всё ломать или говорить вещи, о которых пожалеете — остановитесь и спросите, не Луна ли это в обиде на что-то конкретное. Обычно — да.</p>
+        <p class="summary-text">Поддерживающая ось карты — <strong>Меркурий в трине к Плутону (орб всего 0.3°)</strong>. Это интеллектуальная глубина: вы видите подтексты, скрытые мотивы, можете в нужный момент сформулировать то, что другие чувствуют, но не могут назвать. Используйте это сознательно.</p>
+      </div>
+
+      <div class="summary-section">
+        <h2 class="summary-h">Профессиональный вектор</h2>
+        <p class="summary-text">MC в Стрельце + Плутон в 9 доме — ваша профессиональная реализация это не "комфорт и стабильность" типичного Рака. Это масштаб, выход за пределы, обучение, амбиция увидеть шире. Вы будете чувствовать себя живым в работе, которая требует роста и пересборки понимания мира.</p>
+        <p class="summary-text">Под это есть ресурс: <strong>Луна, Юпитер и Сатурн собраны во 2 доме</strong> (деньги, ресурсная база). Венера, Меркурий — в 6 доме (работа, ремесло). Карта говорит, что вы способны конвертировать амбиции в материальный результат через дисциплинированную ежедневную работу. Не через рывок, а через систему.</p>
+      </div>
+
+      <div class="summary-section">
+        <h2 class="summary-h">На что обратить внимание</h2>
+        <p class="summary-text">У вас есть несколько напряжённых аспектов, которые работают тонко, но настойчиво:</p>
+        <p class="summary-text"><strong>Сатурн квадрат Уран (1.2°)</strong> — внутренний конфликт между потребностью в свободе и потребностью в стабильности. Вы будете регулярно ломать собственные системы, когда они становятся слишком жёсткими. Это не баг, это часть конструкции. Лучшее решение — заранее закладывать в системы пространство для пересборки.</p>
+        <p class="summary-text"><strong>Луна квадрат Нептун (0.7°)</strong> — эмоциональный туман, склонность к идеализации и разочарованиям. Вы можете влюбиться в проекцию человека, а не в человека. Полезная привычка — проверять "это мне действительно это нужно, или я придумал, что нужно".</p>
+      </div>
+    </div>
+
+    <div class="premium-teaser">
+      <div class="premium-eyebrow">РАЗВЁРНУТЫЙ ОТЧЁТ</div>
+      <h3 class="premium-title">Получите глубокий анализ всех 28 разделов</h3>
+      <p class="premium-desc">Прогрессии, ретроградные планеты, лунные узлы, фиксированные звёзды, синастрия, мажорные и минорные аспекты — полный астрологический разбор вашей карты на 12 000 слов с практическими рекомендациями для всех сфер жизни.</p>
+      <button class="premium-btn">Открыть полный отчёт за €9.90</button>
+    </div>
+
+    <div class="chat-section">
+      <div class="chat-header">
+        <div class="chat-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B6914" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+        </div>
+        <div>
+          <h3 class="chat-title">Спросите астролога</h3>
+          <div class="chat-subtitle">AI ОТВЕЧАЕТ НА ОСНОВЕ ВАШЕЙ КАРТЫ</div>
+        </div>
+      </div>
+      <div class="chat-suggestions">
+        <button class="chat-chip">Расскажи про мои отношения</button>
+        <button class="chat-chip">Куда мне идти в карьере?</button>
+        <button class="chat-chip">Что значит моя Луна в Тельце?</button>
+        <button class="chat-chip">Объясни оппозицию Луна–Марс</button>
+        <button class="chat-chip">Какие у меня сильные стороны?</button>
+      </div>
+      <div class="chat-input-wrap">
+        <input class="chat-input" placeholder="Задайте свой вопрос о карте...">
+        <button class="chat-send" aria-label="Отправить">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="actions-bar">
+      <button class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Скачать отчёт PDF
+      </button>
+      <button class="btn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></svg>
+        Сравнить с партнёром
+      </button>
+      <button class="btn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Прогрессии на год
+      </button>
+    </div>
+  </div>
+
+  <!-- TRANSITS -->
+  <div class="tab-panel" data-panel="transits">
+    <div class="ai-tag">АКТИВНЫЕ ВЛИЯНИЯ · НА 14 МАЯ 2026</div>
+
+    <div class="transit-today">
+      <div class="transit-date">ЧТО ПРОИСХОДИТ СЕГОДНЯ</div>
+      <h2 class="transit-h">Период переосмысления ресурсов</h2>
+      <p class="transit-summary">Сегодня и в ближайшие дни в вашей карте активна тема денег, материальной базы и собственной ценности. Транзитный Юпитер проходит через ваш 4 дом, активируя натальную Луну во 2 доме. Это окно, когда финансовые и эмоциональные опоры синхронизируются — хорошее время для долгосрочных вложений и решений о месте жизни.</p>
+
+      <div class="transit-list">
+        <div class="transit-row">
+          <div class="transit-glyphs">
+            <span>♃</span>
+            <span class="transit-aspect">△</span>
+            <span>☽</span>
+          </div>
+          <div class="transit-text"><strong>Юпитер трин натальная Луна.</strong> Эмоциональный подъём, чувство расширения. Хорошо для семейных решений, переговоров о доме.</div>
+          <div class="transit-window">10–18 МАЯ</div>
+        </div>
+        <div class="transit-row">
+          <div class="transit-glyphs">
+            <span>♄</span>
+            <span class="transit-aspect">⚹</span>
+            <span>☉</span>
+          </div>
+          <div class="transit-text"><strong>Сатурн секстиль натальное Солнце.</strong> Время сборки структур и систем. То, что вы начнёте сейчас, будет работать долго.</div>
+          <div class="transit-window">12–22 МАЯ</div>
+        </div>
+        <div class="transit-row">
+          <div class="transit-glyphs">
+            <span>♂</span>
+            <span class="transit-aspect">□</span>
+            <span>♀</span>
+          </div>
+          <div class="transit-text"><strong>Марс квадрат натальная Венера.</strong> Возможны трения в близких отношениях. Будьте внимательнее к тону в разговорах.</div>
+          <div class="transit-window">13–17 МАЯ</div>
+        </div>
+        <div class="transit-row">
+          <div class="transit-glyphs">
+            <span>☿</span>
+            <span class="transit-aspect">☌</span>
+            <span>MC</span>
+          </div>
+          <div class="transit-text"><strong>Меркурий соединение MC.</strong> Окно для важных коммуникаций по карьере. Презентации, интервью, контракты.</div>
+          <div class="transit-window">14–16 МАЯ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="premium-teaser">
+      <div class="premium-eyebrow">ПРОДВИНУТЫЙ АНАЛИЗ</div>
+      <h3 class="premium-title">Прогноз транзитов на 12 месяцев</h3>
+      <p class="premium-desc">Все мажорные аспекты транзитных планет к вашей натальной карте на год вперёд. Календарь ключевых дат, периоды возможностей и периоды повышенной осторожности.</p>
+      <button class="premium-btn">Открыть годовой прогноз</button>
+    </div>
+  </div>
+
+  <!-- CHART -->
+  <div class="tab-panel" data-panel="chart">
+    <div class="chart-section">
+      <svg class="chart-svg" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+
+      <div class="legend-grid">
+        <div>
+          <div class="legend-col-title">АСПЕКТЫ</div>
+          <div class="legend-row"><span class="legend-swatch" style="background: var(--aspect-conjunction);"></span><span class="legend-sym">☌</span><span>Соединение</span></div>
+          <div class="legend-row"><span class="legend-swatch" style="background: var(--aspect-trine);"></span><span class="legend-sym">△</span><span>Трин · гармоничный</span></div>
+          <div class="legend-row"><span class="legend-swatch" style="background: var(--aspect-sextile);"></span><span class="legend-sym">⚹</span><span>Секстиль · поддержка</span></div>
+          <div class="legend-row"><span class="legend-swatch" style="background: var(--aspect-square);"></span><span class="legend-sym">□</span><span>Квадрат · напряжение</span></div>
+          <div class="legend-row"><span class="legend-swatch" style="background: var(--aspect-opposition);"></span><span class="legend-sym">☍</span><span>Оппозиция · полюса</span></div>
+        </div>
+        <div>
+          <div class="legend-col-title">КЛЮЧЕВЫЕ ТОЧКИ</div>
+          <div class="legend-row"><span class="legend-sym">↑</span><span>Асцендент · Водолей 29.1°</span></div>
+          <div class="legend-row"><span class="legend-sym">MC</span><span>Середина неба · Стрелец</span></div>
+          <div class="legend-row"><span class="legend-sym">☉</span><span>Солнце · Рак 15.3° · 5 дом</span></div>
+          <div class="legend-row"><span class="legend-sym">☽</span><span>Луна · Телец 2.7° · 2 дом</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLANETS -->
+  <div class="tab-panel" data-panel="planets">
+    <div class="item-list" id="planetList"></div>
+  </div>
+
+  <!-- HOUSES -->
+  <div class="tab-panel" data-panel="houses">
+    <div class="item-list" id="houseList"></div>
+  </div>
+
+  <!-- ASPECTS -->
+  <div class="tab-panel" data-panel="aspects">
+    <div class="aspect-filter">
+      <button class="filter-pill active" data-filter="all">Все · 17</button>
+      <button class="filter-pill" data-filter="strong">Точные (орб &lt; 2°)</button>
+      <button class="filter-pill" data-filter="conjunction">Соединения</button>
+      <button class="filter-pill" data-filter="trine">Трины</button>
+      <button class="filter-pill" data-filter="sextile">Секстили</button>
+      <button class="filter-pill" data-filter="square">Квадраты</button>
+      <button class="filter-pill" data-filter="opposition">Оппозиции</button>
+    </div>
+    <div class="item-list" id="aspectList"></div>
+  </div>
+
+  <!-- ELEMENTS -->
+  <div class="tab-panel" data-panel="elements">
+    <div class="balance-grid">
+      <div class="balance-card">
+        <div class="balance-header"><span class="balance-name">Огонь</span><span class="balance-value">30%</span></div>
+        <div class="balance-track"><div class="balance-fill" style="width: 30%;"></div></div>
+        <p class="balance-desc">Активная стихия. Энергия, инициатива, спонтанность — у вас этот ресурс в рабочем балансе. Солнце в Раке усиливает огонь через эмоциональное вдохновение.</p>
+      </div>
+      <div class="balance-card">
+        <div class="balance-header"><span class="balance-name">Земля</span><span class="balance-value">30%</span></div>
+        <div class="balance-track"><div class="balance-fill" style="width: 30%;"></div></div>
+        <p class="balance-desc">Стихия материи. Луна, Юпитер и Сатурн в Тельце создают мощный земной фундамент — устойчивость, практичность, способность доводить начатое до результата.</p>
+      </div>
+      <div class="balance-card">
+        <div class="balance-header"><span class="balance-name">Воздух</span><span class="balance-value">20%</span></div>
+        <div class="balance-track"><div class="balance-fill" style="width: 20%;"></div></div>
+        <p class="balance-desc">Стихия мышления. Доступна в нужный момент через Асцендент в Водолее и три планеты в Водолее (Уран, Нептун). Усиливается при необходимости анализа.</p>
+      </div>
+      <div class="balance-card">
+        <div class="balance-header"><span class="balance-name">Вода</span><span class="balance-value">20%</span></div>
+        <div class="balance-track"><div class="balance-fill" style="width: 20%;"></div></div>
+        <p class="balance-desc">Стихия эмоций. Солнце в Раке и Марс в Скорпионе — это водные глубины. Меньше всего точек, но качество компенсирует количество: эмоции у вас плотные.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRENGTH -->
+  <div class="tab-panel" data-panel="strength">
+    <div class="item-card" style="padding: 32px 36px; margin-bottom: 20px;">
+      <div class="item-header" style="margin-bottom: 16px;">
+        <div class="item-glyph">☽</div>
+        <div>
+          <h3 class="item-title">Доминирующая планета — Луна</h3>
+          <div class="item-sub">+11 БАЛЛОВ · 1-Е МЕСТО В КАРТЕ</div>
+        </div>
+      </div>
+      <p class="item-text">Луна задаёт ваш главный вектор поведения и принятия решений. В Тельце во 2 доме в соединении с Юпитером (1.3°) — это не классическая лунная меланхолия, а устойчивая, ресурсная Луна. Вы решаете через ощущение комфорта, безопасности и материальной обеспеченности — и в этом ваша сила, а не слабость.</p>
+      <div class="item-tip">
+        <span class="item-tip-label">ПРАКТИЧНО:</span>
+        В важных решениях сначала спросите себя: "Это даёт мне ощущение стабильной опоры?" Если нет — это не ваше, как бы логично оно ни выглядело.
+      </div>
+    </div>
+
+    <div class="item-card" style="padding: 24px 28px;">
+      <div class="strength-row"><span class="strength-glyph">☽</span><span class="strength-name">Луна</span><span class="strength-rank">1-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 100%;"></div></div><span class="strength-score">+11</span></div>
+      <div class="strength-row"><span class="strength-glyph">♀</span><span class="strength-name">Венера</span><span class="strength-rank">2-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 91%;"></div></div><span class="strength-score">+10</span></div>
+      <div class="strength-row"><span class="strength-glyph">♃</span><span class="strength-name">Юпитер</span><span class="strength-rank">3-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 73%;"></div></div><span class="strength-score">+8</span></div>
+      <div class="strength-row"><span class="strength-glyph">☉</span><span class="strength-name">Солнце</span><span class="strength-rank">4-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 64%;"></div></div><span class="strength-score">+7</span></div>
+      <div class="strength-row"><span class="strength-glyph">♂</span><span class="strength-name">Марс</span><span class="strength-rank">5-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 64%;"></div></div><span class="strength-score">+7</span></div>
+      <div class="strength-row"><span class="strength-glyph">♄</span><span class="strength-name">Сатурн</span><span class="strength-rank">6-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 45%;"></div></div><span class="strength-score">+5</span></div>
+      <div class="strength-row"><span class="strength-glyph">♇</span><span class="strength-name">Плутон</span><span class="strength-rank">7-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 45%;"></div></div><span class="strength-score">+5</span></div>
+      <div class="strength-row"><span class="strength-glyph">☿</span><span class="strength-name">Меркурий</span><span class="strength-rank">8-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 9%;"></div></div><span class="strength-score">+1</span></div>
+      <div class="strength-row"><span class="strength-glyph">♅</span><span class="strength-name">Уран</span><span class="strength-rank">9-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 0%; background: var(--text-hint);"></div></div><span class="strength-score">−1</span></div>
+      <div class="strength-row"><span class="strength-glyph">♆</span><span class="strength-name">Нептун</span><span class="strength-rank">10-я</span><div class="strength-bar-track"><div class="strength-bar-fill" style="width: 0%; background: var(--text-hint);"></div></div><span class="strength-score">−2</span></div>
+    </div>
+  </div>
+
+  <!-- GENERATION -->
+  <div class="tab-panel" data-panel="generation">
+    <div class="gen-section">
+      <h2 class="gen-h">Что в вашей карте лично ваше, а что разделено с поколением</h2>
+      <p class="gen-sub">МЕДЛЕННЫЕ ПЛАНЕТЫ (УРАН, НЕПТУН, ПЛУТОН) ДВИЖУТСЯ МЕДЛЕННО — ИХ ПОЛОЖЕНИЕ В ЗНАКАХ ОБЩЕЕ ДЛЯ ВСЕХ, КТО РОДИЛСЯ В ОДИН ПЕРИОД С ВАМИ</p>
+
+      <div class="gen-cols">
+        <div>
+          <div class="gen-col-title">УНИКАЛЬНО ДЛЯ ВАШЕЙ КАРТЫ</div>
+          <div class="gen-item"><span class="gen-item-symbol">↑</span><div><strong>Асцендент в Водолее 29.1°.</strong> Определяется временем рождения — точно ваше.</div></div>
+          <div class="gen-item"><span class="gen-item-symbol">☉</span><div><strong>Солнце в Раке 15.3°, 5 дом.</strong> Дом — следствие времени рождения. Конкретно ваша конфигурация.</div></div>
+          <div class="gen-item"><span class="gen-item-symbol">☽</span><div><strong>Луна в Тельце 2.7°, 2 дом.</strong> Луна движется быстро (12°/сутки), поэтому даже у людей с тем же днём рождения она будет в разной градусной позиции.</div></div>
+          <div class="gen-item"><span class="gen-item-symbol">♂</span><div><strong>Марс в Скорпионе 0.9° в оппозиции к Луне.</strong> Эта точная конфигурация — редкая и личная.</div></div>
+          <div class="gen-item"><span class="gen-item-symbol">⚹</span><div><strong>Меркурий трин Плутон, орб 0.3°.</strong> Точные аспекты быстрых планет — лично ваша подпись.</div></div>
+        </div>
+        <div class="gen-col-shared">
+          <div class="gen-col-title">ОБЩЕЕ С ВАШИМ ПОКОЛЕНИЕМ</div>
+          <div class="gen-item"><span class="gen-item-symbol">♇</span><div><strong>Плутон в Стрельце</strong> (1995–2008). Всё ваше поколение проходит трансформацию через темы веры, идеологии, расширения мировоззрения.</div></div>
+          <div class="gen-item"><span class="gen-item-symbol">♆</span><div><strong>Нептун в Водолее</strong> (1998–2012). Идеалы свободы, технологий, нестандартного — общий фон вашего поколения.</div></div>
+          <div class="gen-item"><span class="gen-item-symbol">♅</span><div><strong>Уран в Водолее</strong> (1995–2003). Революция цифровизации и индивидуализма — это контекст, в котором вы выросли.</div></div>
+          <div class="gen-item"><span class="gen-item-symbol">⚹</span><div><strong>Нептун секстиль Плутон.</strong> Поколенческий аспект — у всего вашего возрастного среза. Поддержка между идеалом и трансформацией.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-card" style="margin-top: 16px;">
+      <div class="summary-section">
+        <h2 class="summary-h">Почему это важно</h2>
+        <p class="summary-text">Когда сервисы пишут "Плутон в Стрельце означает, что вы трансформируетесь через расширение горизонтов" — это правда, но это правда про <strong>200 миллионов человек</strong>, родившихся между 1995 и 2008. Это не персонализация.</p>
+        <p class="summary-text">Личная подпись карты — это <em>быстрые планеты и их аспекты с орбисом до 2°</em>. У вас таких пять, и именно они отличают вас от ровесников. Особенно ценны точные аспекты — Меркурий трин Плутон 0.3° и Солнце секстиль Сатурн 0.4° — это редкость даже в масштабе одного дня рождения.</p>
+        <p class="summary-text">Эту вкладку не показывают другие сервисы. Они смешивают поколенческое с личным и продают вам "уникальный отчёт", в котором половина пунктов общие для миллионов. Мы разделяем — чтобы вы понимали, на что реально опираться.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ============ SCREEN: MATRIX QUIZ ============ -->
+<section class="screen" id="screen-matrix-quiz">
+
+  <div class="quiz-topbar">
+    <div class="quiz-topbar-inner">
+      <button class="quiz-back" id="mxQuizBackBtn" aria-label="Назад">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="logo-mini">LOVIA</div>
+      <div class="progress-track"><div class="progress-fill" id="mxProgressFill"></div></div>
+      <div class="step-counter" id="mxStepCounter">1 / 4</div>
+    </div>
+  </div>
+
+  <div class="quiz-wrap">
+
+    <!-- MQ1: Welcome -->
+    <div class="quiz-step active" data-mqstep="1">
+      <svg class="matrix-quiz-icon" viewBox="0 0 92 92" fill="none" stroke="#8B7449" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="46,8 84,46 46,84 8,46"/>
+        <polygon points="46,18 74,46 46,74 18,46"/>
+        <line x1="46" y1="8" x2="46" y2="84"/>
+        <line x1="8" y1="46" x2="84" y2="46"/>
+        <line x1="19" y1="19" x2="73" y2="73"/>
+        <line x1="73" y1="19" x2="19" y2="73"/>
+        <circle cx="46" cy="46" r="4" fill="#B8923D" stroke="none"/>
+        <circle cx="46" cy="8" r="2" fill="#B8923D" stroke="none"/>
+        <circle cx="84" cy="46" r="2" fill="#B8923D" stroke="none"/>
+        <circle cx="46" cy="84" r="2" fill="#B8923D" stroke="none"/>
+        <circle cx="8" cy="46" r="2" fill="#B8923D" stroke="none"/>
+      </svg>
+      <div class="quiz-eyebrow">МАТРИЦА СУДЬБЫ</div>
+      <h1 class="quiz-h">22 энергии вашего <em>пути</em></h1>
+      <p class="quiz-sub">Кармическая карта по дате рождения. 22 точки октаграммы раскрывают вашу миссию, таланты, задачи рода и зоны силы.</p>
+
+      <div class="welcome-points">
+        <div class="welcome-point">
+          <div class="welcome-point-num">1</div>
+          <div class="welcome-point-text">
+            <strong>Дата рождения</strong>
+            Основа расчёта — только она нужна для построения матрицы
+          </div>
+        </div>
+        <div class="welcome-point">
+          <div class="welcome-point-num">2</div>
+          <div class="welcome-point-text">
+            <strong>Ваше имя</strong>
+            Для персонального обращения в интерпретации
+          </div>
+        </div>
+        <div class="welcome-point">
+          <div class="welcome-point-num">3</div>
+          <div class="welcome-point-text">
+            <strong>Что сейчас в фокусе</strong>
+            Чтобы интерпретация заострила внимание на том, что важно вам сегодня
+          </div>
+        </div>
+      </div>
+
+      <button class="q-btn-primary" onclick="mxQuizNext()">Начать расчёт</button>
+    </div>
+
+    <!-- MQ2: Date -->
+    <div class="quiz-step" data-mqstep="2">
+      <div class="quiz-eyebrow">ШАГ 1 ИЗ 3</div>
+      <h1 class="quiz-h">Когда вы <em>родились?</em></h1>
+      <p class="quiz-sub">Дата рождения по григорианскому календарю — единственное, что нужно для расчёта матрицы</p>
+
+      <div class="q-field">
+        <label class="q-field-label">ДАТА РОЖДЕНИЯ</label>
+        <div class="q-field-row">
+          <select class="q-select" id="mxBirthDay"><option value="">День</option></select>
+          <select class="q-select" id="mxBirthMonth">
+            <option value="">Месяц</option>
+            <option value="1">Январь</option><option value="2">Февраль</option><option value="3">Март</option>
+            <option value="4">Апрель</option><option value="5">Май</option><option value="6">Июнь</option>
+            <option value="7">Июль</option><option value="8">Август</option><option value="9">Сентябрь</option>
+            <option value="10">Октябрь</option><option value="11">Ноябрь</option><option value="12">Декабрь</option>
+          </select>
+          <select class="q-select" id="mxBirthYear"><option value="">Год</option></select>
+        </div>
+      </div>
+
+      <button class="q-btn-primary" id="mxStep2Btn" onclick="mxQuizNext()" disabled>Продолжить</button>
+    </div>
+
+    <!-- MQ3: Name -->
+    <div class="quiz-step" data-mqstep="3">
+      <div class="quiz-eyebrow">ШАГ 2 ИЗ 3</div>
+      <h1 class="quiz-h">Как вас <em>зовут?</em></h1>
+      <p class="quiz-sub">Имя нужно только для персонализации текста. Можно указать вымышленное или короткую форму</p>
+
+      <div class="q-field">
+        <label class="q-field-label">ВАШЕ ИМЯ</label>
+        <input class="q-input" type="text" id="mxName" placeholder="Например, Анна" maxlength="40" autocomplete="given-name">
+      </div>
+
+      <button class="q-btn-primary" id="mxStep3Btn" onclick="mxQuizNext()" disabled>Продолжить</button>
+    </div>
+
+    <!-- MQ4: Focus -->
+    <div class="quiz-step" data-mqstep="4">
+      <div class="quiz-eyebrow">ШАГ 3 ИЗ 3</div>
+      <h1 class="quiz-h">Что сейчас в <em>фокусе?</em></h1>
+      <p class="quiz-sub">Выберите тему, которая ближе всего — интерпретация будет глубже именно по этому направлению</p>
+
+      <div class="focus-options">
+        <div class="focus-option" data-focus="mission" onclick="selectMxFocus(this)">
+          <svg class="focus-option-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="16" cy="16" r="3"/><circle cx="16" cy="16" r="11"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="16" y1="26" x2="16" y2="30"/><line x1="2" y1="16" x2="6" y2="16"/><line x1="26" y1="16" x2="30" y2="16"/></svg>
+          <div class="focus-option-text">Предназначение<small>МИССИЯ, ПУТЬ, СМЫСЛ</small></div>
+        </div>
+        <div class="focus-option" data-focus="love" onclick="selectMxFocus(this)">
+          <svg class="focus-option-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27 C 10 23, 5 18, 5 12 C 5 8, 8 5, 12 5 C 14 5, 15 7, 16 9 C 17 7, 18 5, 20 5 C 24 5, 27 8, 27 12 C 27 18, 22 23, 16 27 Z"/></svg>
+          <div class="focus-option-text">Отношения<small>ЛЮБОВЬ, ПАРТНЁРСТВО</small></div>
+        </div>
+        <div class="focus-option" data-focus="money" onclick="selectMxFocus(this)">
+          <svg class="focus-option-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="16" cy="16" r="11"/><path d="M19 11 C 18 10, 16 10, 14 11 C 12 12, 12 14, 14 15 L 18 17 C 20 18, 20 20, 18 21 C 16 22, 14 22, 13 21"/><line x1="16" y1="8" x2="16" y2="24"/></svg>
+          <div class="focus-option-text">Финансы<small>ДЕНЬГИ, РЕСУРСЫ</small></div>
+        </div>
+        <div class="focus-option" data-focus="roots" onclick="selectMxFocus(this)">
+          <svg class="focus-option-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M16 4 L 16 18"/><path d="M16 18 C 12 18, 8 22, 8 28"/><path d="M16 18 C 20 18, 24 22, 24 28"/><circle cx="16" cy="6" r="2"/><circle cx="8" cy="28" r="2"/><circle cx="24" cy="28" r="2"/></svg>
+          <div class="focus-option-text">Род и семья<small>КАРМА, ПРЕДКИ, ДОМ</small></div>
+        </div>
+        <div class="focus-option" data-focus="self" onclick="selectMxFocus(this)">
+          <svg class="focus-option-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="12" r="5"/><path d="M6 27 C 6 22, 10 19, 16 19 C 22 19, 26 22, 26 27"/></svg>
+          <div class="focus-option-text">Самопознание<small>ВНУТРЕННИЙ МИР</small></div>
+        </div>
+        <div class="focus-option" data-focus="general" onclick="selectMxFocus(this)">
+          <svg class="focus-option-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="5"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/></svg>
+          <div class="focus-option-text">Общий обзор<small>ВСЕ СФЕРЫ РАВНОМЕРНО</small></div>
+        </div>
+      </div>
+
+      <button class="q-btn-primary" id="mxStep4Btn" onclick="startMatrixCalculation()" disabled>Построить матрицу</button>
+    </div>
+
+    <!-- MQ5: Loading -->
+    <div class="quiz-step" data-mqstep="5">
+      <div class="loading-stage">
+        <svg class="loading-wheel" viewBox="0 0 140 140" fill="none" stroke="#B8923D" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="70,15 125,70 70,125 15,70" stroke-opacity="0.5"/>
+          <polygon points="70,30 110,70 70,110 30,70" stroke-opacity="0.7"/>
+          <line x1="70" y1="15" x2="70" y2="125" stroke-opacity="0.3"/>
+          <line x1="15" y1="70" x2="125" y2="70" stroke-opacity="0.3"/>
+          <line x1="31" y1="31" x2="109" y2="109" stroke-opacity="0.2"/>
+          <line x1="109" y1="31" x2="31" y2="109" stroke-opacity="0.2"/>
+          <circle cx="70" cy="70" r="4" fill="#B8923D" stroke="none"/>
+          <circle cx="70" cy="15" r="3" fill="#B8923D" stroke="none"/>
+          <circle cx="125" cy="70" r="3" fill="#B8923D" stroke="none"/>
+          <circle cx="70" cy="125" r="3" fill="#B8923D" stroke="none"/>
+          <circle cx="15" cy="70" r="3" fill="#B8923D" stroke="none"/>
+        </svg>
+        <h2 class="quiz-h" style="font-size: 28px;">Строим вашу матрицу</h2>
+        <p class="quiz-sub">Рассчитываем 22 точки октаграммы по вашей дате рождения</p>
+
+        <div class="loading-steps">
+          <div class="loading-step" id="mxLs1"><div class="loading-step-dot"></div><span>Редукция чисел даты</span></div>
+          <div class="loading-step" id="mxLs2"><div class="loading-step-dot"></div><span>Квадрат личности</span></div>
+          <div class="loading-step" id="mxLs3"><div class="loading-step-dot"></div><span>Квадрат судьбы</span></div>
+          <div class="loading-step" id="mxLs4"><div class="loading-step-dot"></div><span>Линии любви и денег</span></div>
+          <div class="loading-step" id="mxLs5"><div class="loading-step-dot"></div><span>Подготовка интерпретации</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ SCREEN: MATRIX RESULT ============ -->
+<section class="screen" id="screen-matrix-result">
+
+  <div class="topnav">
+    <div class="topnav-inner">
+      <div class="topnav-left">
+        <button class="back-link" id="mxResultBackBtn" aria-label="Назад">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="logo">LOVIA</div>
+      </div>
+      <div class="topnav-right">
+        <button class="icon-btn" aria-label="Скачать">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Сохранить">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Поделиться">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+        <div class="avatar">YB</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="eyebrow">ВАША МАТРИЦА СУДЬБЫ</div>
+    <h1 class="page-h" id="mxResultName"><em>Yevhenii,</em> вот ваша матрица</h1>
+    <p class="page-meta" id="mxResultMeta">7 июля 1999<span class="dot"></span>Центр 3<span class="dot"></span>Императрица</p>
+  </div>
+
+  <div class="depth-selector">
+    <div class="depth-inner">
+      <button class="depth-btn active" data-depth="brief">КРАТКО</button>
+      <button class="depth-btn" data-depth="full">РАЗВЁРНУТО<span class="depth-badge">PRO</span></button>
+      <button class="depth-btn" data-depth="deep">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="depth-lock"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        ГЛУБОКО<span class="depth-badge">PREMIUM</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="tabs-wrap">
+    <div class="tabs" id="mxTabs">
+      <button class="tab active" data-mxtab="summary">Сводка</button>
+      <button class="tab" data-mxtab="matrix">Матрица</button>
+      <button class="tab" data-mxtab="personality">Личность<span class="tab-count">4</span></button>
+      <button class="tab" data-mxtab="destiny">Судьба<span class="tab-count">4</span></button>
+      <button class="tab" data-mxtab="mission">Миссия</button>
+      <button class="tab" data-mxtab="love">Любовь</button>
+      <button class="tab" data-mxtab="money">Деньги</button>
+      <button class="tab" data-mxtab="karma">Род</button>
+      <button class="tab" data-mxtab="zones">Зоны</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- SUMMARY -->
+    <div class="tab-panel active" data-mxpanel="summary">
+      <div class="ai-tag">ИНТЕРПРЕТАЦИЯ AI · CLAUDE SONNET 4</div>
+
+      <div class="mission-card">
+        <div class="mission-eyebrow">ЦЕНТР МАТРИЦЫ · ВАША МИССИЯ</div>
+        <div class="mission-num" id="mxMissionNum">3</div>
+        <h2 class="mission-arcana" id="mxMissionArc">Императрица</h2>
+        <p class="mission-desc" id="mxMissionDesc">Создавать, питать, давать жизнь идеям и людям. Ваша миссия — быть проводником плодородия в широком смысле: бизнес, семья, творчество, проекты. Не сидеть на потенциале, а воплощать.</p>
+      </div>
+
+      <div class="configurations">
+        <div class="config-h">КЛЮЧЕВЫЕ ТОЧКИ ВАШЕЙ МАТРИЦЫ</div>
+        <div class="config-list" id="mxKeyPoints"></div>
+      </div>
+
+      <div class="summary-card" id="mxSummaryCard">
+        <!-- Will be filled by JS -->
+      </div>
+
+      <div class="premium-teaser">
+        <div class="premium-eyebrow">РАЗВЁРНУТЫЙ ОТЧЁТ</div>
+        <h3 class="premium-title">Получите полный разбор всех 22 точек матрицы</h3>
+        <p class="premium-desc">Все аркана, кармические задачи, поколенческие энергии, точки реализации и зоны роста — подробная интерпретация на 8000+ слов с конкретными практическими рекомендациями для всех сфер жизни.</p>
+        <button class="premium-btn">Открыть полный отчёт за €9.90</button>
+      </div>
+
+      <div class="chat-section">
+        <div class="chat-header">
+          <div class="chat-avatar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B6914" stroke-width="1.2" stroke-linejoin="round"><polygon points="12,2 22,12 12,22 2,12"/><polygon points="12,6 18,12 12,18 6,12"/></svg>
+          </div>
+          <div>
+            <h3 class="chat-title">Спросите нумеролога</h3>
+            <div class="chat-subtitle">AI ОТВЕЧАЕТ НА ОСНОВЕ ВАШЕЙ МАТРИЦЫ</div>
+          </div>
+        </div>
+        <div class="chat-suggestions">
+          <button class="chat-chip">Как реализовать миссию?</button>
+          <button class="chat-chip">Что значит моя точка любви?</button>
+          <button class="chat-chip">Кармические задачи рода</button>
+          <button class="chat-chip">Когда раскроется денежный канал?</button>
+          <button class="chat-chip">Сильные стороны личности</button>
+        </div>
+        <div class="chat-input-wrap">
+          <input class="chat-input" placeholder="Задайте свой вопрос о матрице...">
+          <button class="chat-send" aria-label="Отправить">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="actions-bar">
+        <button class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Скачать отчёт PDF
+        </button>
+        <button class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></svg>
+          Сравнить с партнёром
+        </button>
+        <button class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Прогноз на год
+        </button>
+      </div>
+    </div>
+
+    <!-- MATRIX VIZ -->
+    <div class="tab-panel" data-mxpanel="matrix">
+      <div class="matrix-card">
+        <svg class="matrix-svg" id="mxOctagram" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Lines drawn by JS -->
+        </svg>
+
+        <div class="arcana-legend" id="mxArcanaLegend">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONALITY -->
+    <div class="tab-panel" data-mxpanel="personality">
+      <div class="item-list" id="mxPersonalityList"></div>
+    </div>
+
+    <!-- DESTINY -->
+    <div class="tab-panel" data-mxpanel="destiny">
+      <div class="item-list" id="mxDestinyList"></div>
+    </div>
+
+    <!-- MISSION -->
+    <div class="tab-panel" data-mxpanel="mission">
+      <div class="mission-card" id="mxMissionDetail"></div>
+      <div class="summary-card" id="mxMissionExpand"></div>
+    </div>
+
+    <!-- LOVE -->
+    <div class="tab-panel" data-mxpanel="love">
+      <div class="line-section" id="mxLoveLine"></div>
+      <div class="summary-card" id="mxLoveExpand" style="margin-top: 16px;"></div>
+    </div>
+
+    <!-- MONEY -->
+    <div class="tab-panel" data-mxpanel="money">
+      <div class="line-section" id="mxMoneyLine"></div>
+      <div class="summary-card" id="mxMoneyExpand" style="margin-top: 16px;"></div>
+    </div>
+
+    <!-- KARMA -->
+    <div class="tab-panel" data-mxpanel="karma">
+      <div class="line-section" id="mxKarmaLine"></div>
+      <div class="summary-card" id="mxKarmaExpand" style="margin-top: 16px;"></div>
+    </div>
+
+    <!-- ZONES -->
+    <div class="tab-panel" data-mxpanel="zones">
+      <div class="zone-grid" id="mxZoneGrid"></div>
+      <div class="summary-card" id="mxZoneExpand"></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ============ SCREEN: READING QUIZ ============ -->
+<section class="screen" id="screen-reading-quiz">
+
+  <div class="quiz-topbar">
+    <div class="quiz-topbar-inner">
+      <button class="quiz-back" id="rdQuizBackBtn" aria-label="Назад">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="logo-mini">LOVIA</div>
+      <div class="progress-track"><div class="progress-fill" id="rdProgressFill"></div></div>
+      <div class="step-counter" id="rdStepCounter">1 / 4</div>
+    </div>
+  </div>
+
+  <div class="quiz-wrap">
+
+    <!-- RQ1: Welcome -->
+    <div class="quiz-step active" data-rqstep="1">
+      <svg class="reading-quiz-icon" viewBox="0 0 92 92" fill="none" stroke="#8B7449" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="20" y="12" width="22" height="34" rx="2" transform="rotate(-12 31 29)"/>
+        <rect x="35" y="18" width="22" height="34" rx="2"/>
+        <rect x="50" y="12" width="22" height="34" rx="2" transform="rotate(12 61 29)"/>
+        <rect x="32" y="50" width="22" height="34" rx="2" transform="rotate(-6 43 67)"/>
+        <circle cx="46" cy="35" r="3" fill="#B8923D" stroke="none"/>
+        <circle cx="43" cy="67" r="2" fill="#B8923D" stroke="none"/>
+      </svg>
+      <div class="quiz-eyebrow">ИНДИВИДУАЛЬНЫЙ РАСКЛАД</div>
+      <h1 class="quiz-h">Карты Таро на <em>ваш вопрос</em></h1>
+      <p class="quiz-sub">Сформулируйте вопрос, выберите расклад, перемешайте колоду и вытяните свои карты. Интерпретация AI учитывает ваш конкретный вопрос, а не даёт шаблонный текст.</p>
+
+      <div class="welcome-points">
+        <div class="welcome-point">
+          <div class="welcome-point-num">1</div>
+          <div class="welcome-point-text">
+            <strong>Выберите тип расклада</strong>
+            От одной карты на день до глубокого Кельтского креста на 10 карт
+          </div>
+        </div>
+        <div class="welcome-point">
+          <div class="welcome-point-num">2</div>
+          <div class="welcome-point-text">
+            <strong>Сформулируйте вопрос</strong>
+            Чем конкретнее, тем точнее интерпретация — карты отвечают на то, что вы спрашиваете
+          </div>
+        </div>
+        <div class="welcome-point">
+          <div class="welcome-point-num">3</div>
+          <div class="welcome-point-text">
+            <strong>Вытяните карты</strong>
+            Перемешайте колоду, кликните на карты в веере — система сама раскроет их в позициях
+          </div>
+        </div>
+      </div>
+
+      <button class="q-btn-primary" onclick="rdQuizNext()">Начать расклад</button>
+    </div>
+
+    <!-- RQ2: Spread type -->
+    <div class="quiz-step" data-rqstep="2">
+      <div class="quiz-eyebrow">ШАГ 1 ИЗ 3</div>
+      <h1 class="quiz-h">Какой расклад <em>сделать?</em></h1>
+      <p class="quiz-sub">Каждый тип отвечает на свой вид вопросов. Выберите тот, что ближе вашей ситуации</p>
+
+      <div class="spread-options">
+        <div class="spread-option" data-spread="daily" onclick="selectSpread(this)">
+          <div class="spread-mini-cards">
+            <div class="spread-mini-card tall">☉</div>
+          </div>
+          <h3 class="spread-option-title">Карта дня</h3>
+          <p class="spread-option-desc">Одна карта-совет на сегодня. Энергия дня, ключ к настроению</p>
+          <div class="spread-option-meta">1 КАРТА · 1 МИНУТА</div>
+        </div>
+
+        <div class="spread-option" data-spread="ppf" onclick="selectSpread(this)">
+          <div class="spread-mini-cards">
+            <div class="spread-mini-card">←</div>
+            <div class="spread-mini-card tall">●</div>
+            <div class="spread-mini-card">→</div>
+          </div>
+          <h3 class="spread-option-title">Прошлое — Настоящее — Будущее</h3>
+          <p class="spread-option-desc">Классический расклад на развитие любой ситуации во времени</p>
+          <div class="spread-option-meta">3 КАРТЫ · 3 МИНУТЫ</div>
+        </div>
+
+        <div class="spread-option" data-spread="situation" onclick="selectSpread(this)">
+          <div class="spread-mini-cards">
+            <div class="spread-mini-card">?</div>
+            <div class="spread-mini-card tall">!</div>
+            <div class="spread-mini-card">→</div>
+          </div>
+          <h3 class="spread-option-title">Ситуация — Препятствие — Совет</h3>
+          <p class="spread-option-desc">Когда нужно понять что мешает и что делать. Расклад на решение</p>
+          <div class="spread-option-meta">3 КАРТЫ · 3 МИНУТЫ</div>
+        </div>
+
+        <div class="spread-option locked" data-spread="celtic" onclick="selectSpread(this)">
+          <div class="spread-mini-cards">
+            <div class="spread-mini-card">+</div>
+            <div class="spread-mini-card">+</div>
+            <div class="spread-mini-card tall">★</div>
+            <div class="spread-mini-card">+</div>
+            <div class="spread-mini-card">+</div>
+          </div>
+          <h3 class="spread-option-title">Кельтский крест</h3>
+          <p class="spread-option-desc">Глубокий разбор сложного вопроса со всех сторон. Премиум-расклад</p>
+          <div class="spread-option-meta">10 КАРТ · 8 МИНУТ</div>
+        </div>
+      </div>
+
+      <button class="q-btn-primary" id="rdStep2Btn" onclick="rdQuizNext()" disabled>Продолжить</button>
+    </div>
+
+    <!-- RQ3: Question -->
+    <div class="quiz-step" data-rqstep="3">
+      <div class="quiz-eyebrow">ШАГ 2 ИЗ 3</div>
+      <h1 class="quiz-h">Что вы <em>хотите узнать?</em></h1>
+      <p class="quiz-sub">Сформулируйте конкретный вопрос. От его точности зависит вся интерпретация</p>
+
+      <div class="q-field">
+        <label class="q-field-label">ВАШ ВОПРОС</label>
+        <textarea class="q-textarea" id="rdQuestion" placeholder="Например: Стоит ли мне принимать предложение о новой работе, которое я получила вчера?" maxlength="280"></textarea>
+        <div class="q-char-count" id="rdCharCount">0 / 280</div>
+      </div>
+
+      <div style="margin-bottom: 8px; font-size: 11px; letter-spacing: 0.1em; color: var(--text-muted);">ПОДСКАЗКИ — КЛИКНИТЕ ЧТОБЫ ПОДСТАВИТЬ:</div>
+      <div class="q-hint-list">
+        <button class="q-hint" onclick="useHint(this)">Стоит ли продолжать отношения с N?</button>
+        <button class="q-hint" onclick="useHint(this)">Что мешает мне двигаться вперёд?</button>
+        <button class="q-hint" onclick="useHint(this)">Куда вкладывать силы в этом квартале?</button>
+        <button class="q-hint" onclick="useHint(this)">Как разрешить конфликт с близким человеком?</button>
+        <button class="q-hint" onclick="useHint(this)">На что обратить внимание сегодня?</button>
+      </div>
+
+      <button class="q-btn-primary" id="rdStep3Btn" onclick="rdQuizNext()" disabled>Продолжить</button>
+    </div>
+
+    <!-- RQ4: Draw cards (interactive deck) -->
+    <div class="quiz-step" data-rqstep="4">
+      <div class="quiz-eyebrow">ШАГ 3 ИЗ 3 · ВЫТЯЖКА</div>
+      <h1 class="quiz-h">Вытяните <em>ваши карты</em></h1>
+      <p class="quiz-sub" id="rdDrawHint">Перемешайте колоду столько раз, сколько нужно. Затем кликните на карты в веере — система сама раскроет их в позициях</p>
+
+      <div class="deck-stage">
+        <div class="deck-status">
+          <div class="deck-status-question" id="rdQuestionEcho">Ваш вопрос появится здесь</div>
+        </div>
+
+        <div class="deck-fan-wrap">
+          <div class="deck-fan" id="rdDeckFan"></div>
+        </div>
+
+        <div class="deck-actions">
+          <button class="deck-btn" id="rdShuffleBtn" onclick="shuffleDeck()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+            Перемешать
+          </button>
+          <div class="deck-pick-counter">
+            Выбрано <strong id="rdPickedCount">0</strong> / <strong id="rdNeededCount">3</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RQ5: Loading -->
+    <div class="quiz-step" data-rqstep="5">
+      <div class="loading-stage">
+        <svg class="loading-wheel" viewBox="0 0 140 140" fill="none" stroke="#B8923D" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="22" width="24" height="36" rx="3" transform="rotate(-15 52 40)" stroke-opacity="0.5"/>
+          <rect x="58" y="22" width="24" height="36" rx="3" stroke-opacity="0.8"/>
+          <rect x="76" y="22" width="24" height="36" rx="3" transform="rotate(15 88 40)" stroke-opacity="0.5"/>
+          <circle cx="70" cy="100" r="3" fill="#B8923D" stroke="none"/>
+          <line x1="50" y1="100" x2="90" y2="100" stroke-opacity="0.3"/>
+        </svg>
+        <h2 class="quiz-h" style="font-size: 28px;">Раскрываем ваши карты</h2>
+        <p class="quiz-sub">Интерпретируем расклад в контексте вашего вопроса</p>
+
+        <div class="loading-steps">
+          <div class="loading-step" id="rdLs1"><div class="loading-step-dot"></div><span>Раскрытие карт</span></div>
+          <div class="loading-step" id="rdLs2"><div class="loading-step-dot"></div><span>Анализ позиций</span></div>
+          <div class="loading-step" id="rdLs3"><div class="loading-step-dot"></div><span>Учёт вашего вопроса</span></div>
+          <div class="loading-step" id="rdLs4"><div class="loading-step-dot"></div><span>Подготовка интерпретации</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ SCREEN: READING RESULT ============ -->
+<section class="screen" id="screen-reading-result">
+
+  <div class="topnav">
+    <div class="topnav-inner">
+      <div class="topnav-left">
+        <button class="back-link" id="rdResultBackBtn" aria-label="Назад">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="logo">LOVIA</div>
+      </div>
+      <div class="topnav-right">
+        <button class="icon-btn" aria-label="Скачать">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Сохранить">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Поделиться">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+        <div class="avatar">YB</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="eyebrow" id="rdResultEyebrow">ВАШ РАСКЛАД</div>
+    <h1 class="page-h"><em id="rdResultSpreadName">Прошлое — Настоящее — Будущее</em></h1>
+    <p class="page-meta" id="rdResultMeta">14 мая 2026<span class="dot"></span>3 карты</p>
+  </div>
+
+  <div class="tabs-wrap">
+    <div class="tabs" id="rdTabs">
+      <button class="tab active" data-rdtab="summary">Сводка</button>
+      <button class="tab" data-rdtab="cards">Карты</button>
+      <button class="tab" data-rdtab="advice">Совет</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- SUMMARY -->
+    <div class="tab-panel active" data-rdpanel="summary">
+      <div class="ai-tag">ИНТЕРПРЕТАЦИЯ AI · CLAUDE SONNET 4</div>
+
+      <div class="reading-q-display">
+        <div class="reading-q-eyebrow">ВАШ ВОПРОС</div>
+        <p class="reading-q-text" id="rdResultQuestion">—</p>
+      </div>
+
+      <div class="spread-layout" id="rdResultSpread">
+        <!-- Cards rendered by JS -->
+      </div>
+
+      <div class="summary-card" id="rdSummaryCard">
+        <!-- Summary text rendered by JS -->
+      </div>
+
+      <div class="chat-section">
+        <div class="chat-header">
+          <div class="chat-avatar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B6914" stroke-width="1.2" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+          </div>
+          <div>
+            <h3 class="chat-title">Уточните расклад</h3>
+            <div class="chat-subtitle">AI ОТВЕЧАЕТ ПО КОНТЕКСТУ ЭТОГО РАСКЛАДА</div>
+          </div>
+        </div>
+        <div class="chat-suggestions">
+          <button class="chat-chip">Что означает первая карта подробнее?</button>
+          <button class="chat-chip">Как ситуация будет развиваться?</button>
+          <button class="chat-chip">Что мне нельзя делать сейчас?</button>
+          <button class="chat-chip">Когда ожидать перемен?</button>
+        </div>
+        <div class="chat-input-wrap">
+          <input class="chat-input" placeholder="Спросите по своему раскладу...">
+          <button class="chat-send" aria-label="Отправить">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="new-reading-action">
+        <button class="btn-primary" onclick="navigateTo('screen-home')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          На главную
+        </button>
+        <button class="btn-ghost" onclick="resetRdQuiz(); navigateTo('screen-reading-quiz');">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          Новый расклад
+        </button>
+      </div>
+    </div>
+
+    <!-- CARDS — detailed per-card interpretation -->
+    <div class="tab-panel" data-rdpanel="cards">
+      <div class="reading-q-display">
+        <div class="reading-q-eyebrow">КОНТЕКСТ ИНТЕРПРЕТАЦИИ</div>
+        <p class="reading-q-text" id="rdResultQuestion2">—</p>
+      </div>
+      <div id="rdCardsList">
+        <!-- Per-card detail rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ADVICE -->
+    <div class="tab-panel" data-rdpanel="advice">
+      <div class="summary-card" id="rdAdviceCard">
+        <!-- Advice rendered by JS -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     SCREEN: PAYMENT — универсальная страница, содержимое подставляется по контексту
+     ============================================ -->
+<section class="screen" id="screen-payment">
+  <div class="payment-screen-inner">
+
+    <!-- ===== STICKY TOPBAR ===== -->
+    <header class="pay-topbar">
+      <div class="pay-topbar-inner">
+        <div class="pay-timer-block">
+          <div class="pay-brand-mini logo-v2-wrap" id="payBrandLogo" style="cursor:pointer" role="link" tabindex="0">
+            <div class="logo-v2">LOVIA</div>
+            <div class="logo-v2-tag">ВАШ ЛИЧНЫЙ АСТРОЛОГ</div>
+          </div>
+          <div class="pay-timer-text">
+            Твой <span class="accent" id="payTopbarType">эскиз</span> за&nbsp;<span class="price-mini">0,50&nbsp;€</span> исчезнет через
+          </div>
+          <div class="pay-timer-pill" id="payTimerPill">15:00</div>
+        </div>
+        <button class="pay-topbar-cta" id="payTopbarCta">Продолжить</button>
+      </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="pay-hero">
+      <div class="pay-hero-container">
+        <div class="pay-hero-card">
+          <div class="pay-hero-content">
+            <div class="pay-hero-eyebrow" id="payHeroEyebrow">ПРОБНЫЙ ДОСТУП</div>
+            <h1 class="pay-hero-heading" id="payHeroHeading"></h1>
+            <p class="pay-hero-sub" id="payHeroSub"></p>
+            <div class="pay-hero-stats">
+              <div class="pay-hero-stat">
+                <div class="pay-hero-stat-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M 12 21 L 3 12 Q -0.5 8, 2 5 Q 5 1, 9 5 Q 10.5 6, 12 7.5 Q 13.5 6, 15 5 Q 19 1, 22 5 Q 24.5 8, 21 12 Z"/></svg>
+                </div>
+                <div><strong id="payStat1Number">1278 пользователей</strong> <span id="payStat1Text">сегодня открыли свою карту</span></div>
+              </div>
+              <div class="pay-hero-stat">
+                <div class="pay-hero-stat-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M 12 1.5 L 15 9 L 22.5 9.75 L 16.5 15 L 18.75 22.5 L 12 18.75 L 5.25 22.5 L 7.5 15 L 1.5 9.75 L 9 9 Z"/></svg>
+                </div>
+                <div>Нам доверяют более <strong>20&nbsp;млн человек</strong> по всему миру</div>
+              </div>
+            </div>
+            <button class="pay-hero-cta" id="payHeroCta">Получить доступ</button>
+          </div>
+          <div class="pay-hero-illustration" id="payHeroIllustration">
+            <!-- SVG картинка вставляется JS по контексту -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PAYMENT GRID ===== -->
+    <section class="pay-section">
+      <div class="pay-section-container">
+
+        <div class="pay-section-title">
+          <h2>Попробуй <em>Lovia</em> на&nbsp;3 дня</h2>
+          <div class="sub">Мы поможем тебе сделать правильный выбор</div>
+        </div>
+
+        <div class="pay-grid">
+
+          <!-- ЛЕВО — INFO -->
+          <div class="pay-info-side">
+            <div class="pay-social-proof">
+              <div class="pay-social-text">
+                <strong id="paySocialCount">996 человек</strong><br/>
+                <span id="paySocialText">присоединились сегодня</span>
+              </div>
+              <div class="pay-social-avatars">
+                <div class="pay-avatar">A</div>
+                <div class="pay-avatar">M</div>
+                <div class="pay-avatar">S</div>
+                <div class="pay-avatar count">+993</div>
+              </div>
+            </div>
+
+            <h2 class="pay-info-h2" id="payInfoTitle"></h2>
+
+            <div class="pay-feature-grid" id="payInfoFeatures">
+              <!-- 3 карточки преимуществ вставляются JS -->
+            </div>
+
+            <div class="pay-info-footer">
+              <div class="pay-info-footer-label">— Lovia упоминали в&nbsp;—</div>
+              <div class="pay-info-footer-row">
+                <span>The Globe</span>
+                <span>·</span>
+                <span>Benzinga</span>
+                <span>·</span>
+                <span>Yahoo!</span>
+                <span>·</span>
+                <span>Barchart</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ПРАВО — PAY -->
+          <div class="pay-side" id="paySide">
+            <h3 class="pay-heading" id="payHeading"></h3>
+            <p class="pay-subheading" id="paySubheading"></p>
+
+            <div class="pay-features" id="payFeaturesList">
+              <!-- 4 фичи вставляются JS -->
+            </div>
+
+            <!-- Промокод с анимированной обводкой (две диаметрально противоположные нити) -->
+            <div class="pay-promo">
+              <svg class="pay-promo-thread" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <rect class="thread-1" x="1.5" y="1.5" width="97%" height="94%" rx="11" ry="11" pathLength="100"/>
+                <rect class="thread-2" x="1.5" y="1.5" width="97%" height="94%" rx="11" ry="11" pathLength="100"/>
+              </svg>
+              <span class="pay-promo-label">ТВОЙ ПРОМОКОД</span>
+              <div class="pay-promo-gift">
+                <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="11" width="20" height="13" rx="1.5" fill="currentColor"/>
+                  <rect x="3" y="8" width="20" height="4" rx="1" fill="currentColor"/>
+                  <line x1="13" y1="8" x2="13" y2="24" stroke="#FFFCF5" stroke-width="1.2"/>
+                  <path d="M 13 8 Q 8 8, 8 4 Q 8 1.5, 10.5 1.5 Q 13 1.5, 13 5 Q 13 1.5, 15.5 1.5 Q 18 1.5, 18 4 Q 18 8, 13 8" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="pay-promo-info">
+                <div class="pay-promo-code" id="payPromoCode">LOVIASTART95</div>
+                <div class="pay-promo-applied">Применён · Скидка 95%</div>
+              </div>
+            </div>
+
+            <!-- Цена -->
+            <div class="pay-price-block">
+              <div>
+                <div class="pay-price-label">К&nbsp;ОПЛАТЕ</div>
+              </div>
+              <div class="pay-price-numbers">
+                <div class="pay-price-old">€9,99</div>
+                <div class="pay-price-new">€0,50</div>
+                <div class="pay-price-save">Экономия 95%</div>
+              </div>
+            </div>
+
+            <!-- Кнопки оплаты -->
+            <div class="pay-buttons">
+              <button class="pay-btn paypal pay-action">
+                <span class="pay-label">Pay<span class="pay-label-em">Pal</span></span>
+              </button>
+              <button class="pay-btn apple pay-action">
+                <svg class="pay-icon" viewBox="0 0 18 20" fill="currentColor"><path d="M14.5 10.5c-.02-2.5 2-3.7 2.1-3.76-1.15-1.68-2.93-1.9-3.57-1.92-1.52-.15-2.97.9-3.74.9-.77 0-1.97-.88-3.24-.85-1.67.02-3.2.97-4.06 2.46-1.73 3-.44 7.4 1.25 9.83.82 1.18 1.8 2.5 3.1 2.45 1.24-.05 1.71-.8 3.2-.8s1.93.8 3.24.77c1.34-.02 2.19-1.2 3.01-2.38.95-1.37 1.34-2.7 1.36-2.77-.03-.01-2.6-1-2.62-3.93zM12.05 3.32c.68-.83 1.14-1.97 1.01-3.12-.98.04-2.17.66-2.88 1.48-.63.73-1.18 1.9-1.04 3.01 1.1.08 2.22-.55 2.91-1.37z"/></svg>
+                <span class="pay-label">Pay</span>
+              </button>
+              <button class="pay-btn gpay pay-action">
+                <span class="pay-label" style="font-family:Arial,sans-serif;font-weight:500;font-size:15px">
+                  <span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> Pay
+                </span>
+              </button>
+              <button class="pay-btn card pay-action">
+                <svg class="pay-icon" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="22" height="14" rx="2"/><line x1="1" y1="6" x2="23" y2="6" stroke-width="2"/><rect x="4" y="10" width="6" height="2.5" fill="currentColor"/></svg>
+                <span class="pay-label">Банковская карта</span>
+              </button>
+            </div>
+
+            <!-- Trust -->
+            <div class="pay-trust">
+              <div class="pay-trust-item">
+                <div class="pay-trust-icon">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M 7 1 L 1.5 3.5 L 1.5 7 Q 1.5 10.5, 7 13 Q 12.5 10.5, 12.5 7 L 12.5 3.5 Z"/><path d="M 4.5 7 L 6.3 8.8 L 9.5 5.3" stroke-linecap="round"/></svg>
+                </div>
+                <span>Защищено</span>
+              </div>
+              <div class="pay-trust-item">
+                <div class="pay-trust-icon">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="6" width="9" height="7" rx="0.8"/><path d="M 4.5 6 L 4.5 4 Q 4.5 1.5, 7 1.5 Q 9.5 1.5, 9.5 4 L 9.5 6"/></svg>
+                </div>
+                <span>SSL</span>
+              </div>
+              <div class="pay-trust-item">
+                <div class="pay-trust-icon">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="7" cy="7" r="5.5"/><path d="M 7 4 L 7 7 L 9 8.5" stroke-linecap="round"/></svg>
+                </div>
+                <span>Мгновенно</span>
+              </div>
+            </div>
+
+            <!-- Policy -->
+            <div class="pay-policy">
+              <strong>Пробный период 3&nbsp;дня</strong> — всего за&nbsp;<strong>0,50&nbsp;€</strong>.
+              После пробного периода — <strong>29,90&nbsp;€/мес</strong>, пока вы&nbsp;не&nbsp;отмените подписку. Отменить можно в&nbsp;любой момент в&nbsp;настройках профиля.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section class="pay-reviews">
+      <div class="pay-section-container">
+        <div class="pay-section-title">
+          <h2>Почему люди выбирают <em>Lovia</em></h2>
+        </div>
+        <div class="pay-reviews-grid" id="payReviewsGrid">
+          <!-- 3 отзыва вставляются JS под контекст -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="pay-faq">
+      <div class="pay-section-title">
+        <h2>Часто задаваемые <em>вопросы</em></h2>
+      </div>
+      <div id="payFaqList">
+        <!-- FAQ вставляется JS под контекст -->
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="pay-footer">
+      <div class="pay-footer-inner">
+        <div class="pay-footer-brand">LOVIA</div>
+        <div class="pay-footer-text">
+          Платформа для глубокого познания себя. Натальная карта · Матрица судьбы · Расклады Таро<br/>
+          © 2026 Lovia. Все права защищены.
+        </div>
+        <div class="pay-footer-links">
+          <a href="#">Условия использования</a>
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Возврат средств</a>
+          <a href="#">Поддержка</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</section>
+
+<!-- ============================================
+     SCREEN: DASHBOARD — личный кабинет
+     ============================================ -->
+<section class="screen" id="screen-dashboard">
+  <div class="dash-wrap">
+
+    <!-- TOP NAV -->
+    <header class="dash-topnav">
+      <div class="dash-topnav-inner">
+        <div class="dash-username" id="dashUserName" onclick="navigateTo('screen-home'); window.scrollTo({top:0});" title="На главную">Yevhenii</div>
+        <nav class="dash-nav-center">
+          <button class="dash-nav-link" data-dash-section="home">ПРАКТИКИ</button>
+          <button class="dash-nav-link" data-dash-section="calendar">КАЛЕНДАРЬ</button>
+          <button class="dash-nav-link" data-dash-section="orders">МОИ ЗАКАЗЫ</button>
+          <button class="dash-nav-link" data-dash-section="library">БИБЛИОТЕКА</button>
+          <button class="dash-nav-link" data-dash-section="favorites">ИЗБРАННОЕ</button>
+        </nav>
+        <div class="dash-nav-right">
+          <button class="dash-icon-btn" title="Уведомления">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M 18 8 A 6 6 0 0 0 6 8 C 6 15 3 17 3 17 L 21 17 C 21 17 18 15 18 8 Z"/><path d="M 13.7 21 A 2 2 0 0 1 10.3 21"/></svg>
+          </button>
+          <button class="dash-avatar-trigger" id="dashAvatarBtn" title="Профиль">
+            <div class="dash-avatar-img" id="dashAvatarTop">YB</div>
+            <svg class="dash-avatar-caret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M 2 3.5 L 5 6.5 L 8 3.5"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <!-- ACTIVE ORDER BANNER — между header и main -->
+    <div class="dash-active-banner-wrap" id="dashActiveBannerWrap" style="display:none">
+      <button class="dash-active-banner" id="dashActiveBanner" type="button">
+        <div class="dash-active-banner-left">
+          <div class="dash-active-banner-icon" id="dashActiveBannerIcon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="12" cy="13" r="8"/>
+              <path d="M 12 9 L 12 13 L 15 15"/>
+              <path d="M 9 2 L 15 2 M 12 2 L 12 5"/>
+            </svg>
+          </div>
+          <div class="dash-active-banner-text">
+            <div class="dash-active-banner-badge" id="dashActiveBannerBadge" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M 12 4 L 13 10 L 19 11 L 13 12 L 12 18 L 11 12 L 5 11 L 11 10 Z"/></svg>
+              <span id="dashActiveBannerBadgeText">ПРИОРИТЕТНАЯ ОЧЕРЕДЬ</span>
+            </div>
+            <h3 class="dash-active-banner-title" id="dashActiveBannerTitle">Портрет половинки в работе</h3>
+            <p class="dash-active-banner-sub" id="dashActiveBannerSub">Кликните, чтобы ускорить за 3,99 €</p>
+          </div>
+        </div>
+        <div class="dash-active-banner-right">
+          <div class="dash-active-banner-timer" id="dashActiveBannerTimer">23:59:59</div>
+          <span class="dash-active-banner-arrow" id="dashActiveBannerArrow">→</span>
+        </div>
+      </button>
+    </div>
+
+    <main class="dash-main">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="dash-sidebar">
+        <div class="dash-profile-card">
+          <div class="dash-section-label">МОЙ ПРОФИЛЬ</div>
+          <div class="dash-profile-photo" id="dashProfilePhoto">YB</div>
+          <h3 class="dash-profile-name" id="dashProfileName">Yevhenii Bilous</h3>
+          <p class="dash-profile-age" id="dashProfileAge">26 лет</p>
+          <div class="dash-profile-detail">
+            <svg class="dash-profile-detail-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M 3 8 L 6 11 L 7 9 L 9 13 L 11 6 L 13 8"/></svg>
+            <span id="dashProfileSign"><strong>Рак</strong></span>
+          </div>
+          <div class="dash-profile-detail">
+            <svg class="dash-profile-detail-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M 2 6 L 14 6 M 5 1.5 L 5 4.5 M 11 1.5 L 11 4.5"/></svg>
+            <span id="dashProfileBirth">07.07.1999 · 23:00</span>
+          </div>
+          <div class="dash-profile-detail">
+            <svg class="dash-profile-detail-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M 8 14 C 8 14 13 9 13 5.5 A 5 5 0 0 0 3 5.5 C 3 9 8 14 8 14 Z"/><circle cx="8" cy="5.5" r="1.5"/></svg>
+            <span id="dashProfileCity">Киев, Украина</span>
+          </div>
+          <button class="dash-edit-profile" id="dashEditProfile">Редактировать профиль</button>
+        </div>
+
+        <!-- Карточка подписки -->
+        <div class="dash-sub-card" id="dashSubCard">
+          <div class="dash-section-label">ПОДПИСКА</div>
+          <div class="dash-sub-plan">
+            <span class="dash-sub-badge">PRO</span>
+            <div>
+              <div class="dash-sub-name">Lovia Pro</div>
+              <div class="dash-sub-status" id="dashSubStatus">Активна</div>
+            </div>
+          </div>
+          <div class="dash-sub-renew" id="dashSubRenew">Следующее списание: <strong>24 мая 2026</strong> · 29,90&nbsp;€/мес</div>
+          <button class="dash-cancel-sub" id="dashCancelSubBtn">Отменить подписку</button>
+        </div>
+
+        <nav class="dash-side-nav">
+          <button class="dash-side-nav-item active" data-dash-section="home">
+            <svg class="dash-side-nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M 2 8 L 8 2 L 14 8 L 14 14 L 10 14 L 10 10 L 6 10 L 6 14 L 2 14 Z"/></svg>
+            Главная
+          </button>
+          <button class="dash-side-nav-item" data-dash-section="orders">
+            <svg class="dash-side-nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="2" width="10" height="12" rx="1"/><path d="M 5 5 L 11 5 M 5 8 L 11 8 M 5 11 L 9 11"/></svg>
+            Мои заказы
+          </button>
+          <button class="dash-side-nav-item" data-dash-section="favorites">
+            <svg class="dash-side-nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M 8 14 L 2 7.5 Q -0.5 5, 2 3 Q 5.5 0, 8 4 Q 10.5 0, 14 3 Q 16.5 5, 14 7.5 Z"/></svg>
+            Избранное
+          </button>
+          <button class="dash-side-nav-item" data-dash-section="calendar">
+            <svg class="dash-side-nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M 2 6 L 14 6 M 5 1.5 L 5 4.5 M 11 1.5 L 11 4.5"/></svg>
+            Календарь
+          </button>
+          <button class="dash-side-nav-item" data-dash-section="library">
+            <svg class="dash-side-nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M 2 3 L 8 4.5 L 14 3 L 14 13 L 8 14.5 L 2 13 Z M 8 4.5 L 8 14.5"/></svg>
+            Библиотека
+          </button>
+          <button class="dash-side-nav-item" data-dash-section="settings">
+            <svg class="dash-side-nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="2"/><path d="M 8 1 L 8 3 M 8 13 L 8 15 M 1 8 L 3 8 M 13 8 L 15 8 M 3 3 L 4.5 4.5 M 11.5 11.5 L 13 13 M 3 13 L 4.5 11.5 M 11.5 4.5 L 13 3"/></svg>
+            Настройки
+          </button>
+          <button class="dash-side-nav-item" id="dashLogoutBtn">
+            <svg class="dash-side-nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M 9 2 L 3 2 L 3 14 L 9 14 M 7 8 L 14 8 M 11 5 L 14 8 L 11 11"/></svg>
+            Выход
+          </button>
+        </nav>
+      </aside>
+
+      <!-- CENTER CONTENT -->
+      <div class="dash-content">
+
+        <div class="dash-center-col">
+          <div class="dash-greeting">
+            <h1 class="dash-greeting-h" id="dashGreetingFull">Добрый вечер, <em id="dashGreetingName">Yevhenii</em></h1>
+            <p class="dash-greeting-text">
+              Рады видеть вас в&nbsp;вашем пространстве.<br/>
+              Здесь хранятся ваши практики, заказы и&nbsp;важные подсказки.
+            </p>
+          </div>
+
+          <!-- Энергетика дня -->
+          <div class="dash-energy">
+            <div>
+              <div class="dash-energy-label">ВАША ЭНЕРГЕТИКА ДНЯ</div>
+              <h2 class="dash-energy-h" id="dashEnergyTitle">День для ясности и&nbsp;новых идей</h2>
+              <p class="dash-energy-text" id="dashEnergyText">Хорошее время для планирования, обучения и&nbsp;общения.</p>
+              <button class="dash-energy-link" id="dashEnergyMore">Читать совет дня <span>→</span></button>
+            </div>
+            <div class="dash-energy-moon">
+              <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <!-- Звёзды вокруг -->
+                <g fill="#B8923D" opacity="0.7">
+                  <circle cx="20" cy="30" r="1"/>
+                  <circle cx="120" cy="40" r="1.2"/>
+                  <circle cx="115" cy="100" r="0.9"/>
+                  <circle cx="30" cy="105" r="1"/>
+                  <circle cx="105" cy="22" r="0.8"/>
+                  <circle cx="22" cy="65" r="0.7"/>
+                  <circle cx="125" cy="75" r="0.7"/>
+                  <text x="14" y="48" font-size="9" opacity="0.6">✦</text>
+                  <text x="100" y="55" font-size="8" opacity="0.5">✦</text>
+                  <text x="38" y="125" font-size="9" opacity="0.6">✦</text>
+                  <text x="115" y="115" font-size="7" opacity="0.5">✦</text>
+                </g>
+                <!-- Круг по периметру -->
+                <circle cx="70" cy="70" r="58" fill="none" stroke="#D4AE5C" stroke-width="0.4" opacity="0.5"/>
+                <circle cx="70" cy="70" r="48" fill="none" stroke="#B8923D" stroke-width="0.6" opacity="0.7"/>
+                <!-- Луна полумесяц -->
+                <path d="M 60 40 A 30 30 0 1 0 60 100 A 22 28 0 1 1 60 40 Z" fill="#B8923D" opacity="0.9"/>
+                <!-- Мини-звёзды на самой луне -->
+                <circle cx="58" cy="55" r="0.6" fill="#FFFCF5"/>
+                <circle cx="52" cy="75" r="0.5" fill="#FFFCF5"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Заказы -->
+          <div class="dash-orders">
+            <div class="dash-orders-head">
+              <div class="dash-section-label">МОИ ЗАКАЗЫ</div>
+              <button class="dash-orders-all" data-dash-section="orders">Все заказы →</button>
+            </div>
+            <div id="dashOrdersList">
+              <!-- заполняется JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <div class="dash-right-col">
+
+          <!-- Ближайшие практики -->
+          <div class="dash-card">
+            <div class="dash-upcoming-head">
+              <div class="dash-section-label" style="margin-bottom:0">БЛИЖАЙШИЕ ПРАКТИКИ</div>
+              <button class="dash-orders-all" data-dash-section="calendar">Смотреть календарь →</button>
+            </div>
+            <div id="dashUpcomingList">
+              <!-- заполняется JS -->
+            </div>
+          </div>
+
+          <!-- Космическая карта -->
+          <div class="dash-card">
+            <div class="dash-upcoming-head">
+              <div class="dash-section-label" style="margin-bottom:0">ВАША КОСМИЧЕСКАЯ КАРТА</div>
+            </div>
+            <div class="dash-cosmic-grid">
+              <div id="dashCosmicInfo">
+                <!-- заполняется JS -->
+              </div>
+              <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="55" cy="55" r="50" fill="none" stroke="#D4AE5C" stroke-width="0.6" opacity="0.5"/>
+                <circle cx="55" cy="55" r="38" fill="none" stroke="#B8923D" stroke-width="0.8"/>
+                <circle cx="55" cy="55" r="22" fill="none" stroke="#D4AE5C" stroke-width="0.4" opacity="0.6"/>
+                <!-- Деления знаков -->
+                <g stroke="#D4AE5C" stroke-width="0.4" opacity="0.5">
+                  <line x1="55" y1="5" x2="55" y2="17"/>
+                  <line x1="55" y1="93" x2="55" y2="105"/>
+                  <line x1="5" y1="55" x2="17" y2="55"/>
+                  <line x1="93" y1="55" x2="105" y2="55"/>
+                  <line x1="20" y1="20" x2="28" y2="28"/>
+                  <line x1="82" y1="82" x2="90" y2="90"/>
+                  <line x1="90" y1="20" x2="82" y2="28"/>
+                  <line x1="20" y1="90" x2="28" y2="82"/>
+                </g>
+                <!-- Планеты-точки -->
+                <circle cx="35" cy="42" r="2" fill="#B8923D"/>
+                <circle cx="75" cy="50" r="2" fill="#B8923D"/>
+                <circle cx="68" cy="78" r="2" fill="#B8923D"/>
+                <circle cx="38" cy="72" r="1.6" fill="#8B6914"/>
+                <!-- Аспекты -->
+                <line x1="35" y1="42" x2="68" y2="78" stroke="#B8923D" stroke-width="0.4" opacity="0.5"/>
+                <line x1="75" y1="50" x2="38" y2="72" stroke="#B8923D" stroke-width="0.4" opacity="0.5"/>
+                <!-- Центр -->
+                <circle cx="55" cy="55" r="2" fill="#B8923D"/>
+              </svg>
+            </div>
+            <button class="dash-cosmic-link" onclick="if(typeof navigateTo==='function'){navigateTo('screen-natal-result');window.scrollTo({top:0});}">Показать всю карту <span>→</span></button>
+          </div>
+
+        </div>
+
+        <!-- Bottom banner -->
+        <div class="dash-consultation">
+          <svg class="dash-consult-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M 14 42 L 14 20 L 22 12 L 30 12 L 38 20 L 38 42 Z" fill="#F5E8CC" stroke="#B8923D"/>
+            <path d="M 22 12 L 22 24 M 30 12 L 30 24 M 14 20 L 38 20" stroke="#B8923D"/>
+            <text x="18" y="38" font-size="6" fill="#8B6914" opacity="0.5">✦</text>
+            <text x="28" y="32" font-size="5" fill="#8B6914" opacity="0.5">✦</text>
+          </svg>
+          <div class="dash-consult-text">
+            <h3 class="dash-consult-h">Хотите глубже понять себя?</h3>
+            <p class="dash-consult-sub">Попробуйте индивидуальную сессию с&nbsp;разбором вашей карты.</p>
+          </div>
+          <button class="dash-consult-btn" onclick="alert('Запись на консультацию — будет настроено через Calendly или Stripe Payment Link')">Записаться на консультацию</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ============================================
+     SCREEN: PORTRAIT QUIZ — нативные первые 4 экрана + iframe для 5+
+     ============================================ -->
+<section class="screen active" id="screen-portrait-quiz">
+  <div class="pq-wrap">
+    <!-- Кнопка "На главную" -->
+    <button class="pq-back-btn" id="pqBackBtn" aria-label="На главную">
+      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M 7 2 L 4 5.5 L 7 9"/></svg>
+      На главную
+    </button>
+
+    <!-- iframe квиза коллеги -->
+    <div class="pq-iframe-wrap" id="pqIframeWrap">
+      <iframe id="pqIframe" title="Квиз: Портрет половинки" src=""></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PAYMENT UPSELL MODAL — открывается на screen-payment
+     при бездействии (30 сек) или попытке покинуть страницу
+     ============================================ -->
+<div class="pay-upsell-backdrop" id="payUpsellBackdrop" role="dialog" aria-labelledby="payUpsellTitle" aria-hidden="true">
+  <div class="pay-upsell-card">
+    <button class="pay-upsell-close" id="payUpsellClose" aria-label="Закрыть">×</button>
+    
+    <!-- Декоративные элементы -->
+    <span class="pay-upsell-deco top-left">✦</span>
+    <span class="pay-upsell-deco bottom-right">✦</span>
+    
+    <!-- Иконка подарок: открытая шкатулка с лучами -->
+    <div class="pay-upsell-icon">
+      <svg viewBox="0 0 76 76" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <!-- Лучи вокруг подарка -->
+        <g stroke="#B8923D" stroke-width="0.8" stroke-linecap="round" opacity="0.5">
+          <line x1="38" y1="6" x2="38" y2="14"/>
+          <line x1="14" y1="14" x2="20" y2="20"/>
+          <line x1="62" y1="14" x2="56" y2="20"/>
+          <line x1="6" y1="38" x2="14" y2="38"/>
+          <line x1="62" y1="38" x2="70" y2="38"/>
+        </g>
+        <!-- Звёзды -->
+        <text x="10" y="42" font-size="6" fill="#B8923D" opacity="0.6">✦</text>
+        <text x="62" y="48" font-size="5" fill="#B8923D" opacity="0.5">✦</text>
+        <text x="20" y="14" font-size="4" fill="#B8923D" opacity="0.5">✦</text>
+        
+        <!-- Шкатулка-подарок -->
+        <!-- Крышка -->
+        <rect x="20" y="24" width="36" height="10" rx="2" fill="#F5E0C9" stroke="#8B6914" stroke-width="1.2"/>
+        <!-- Тело шкатулки -->
+        <rect x="22" y="34" width="32" height="28" rx="2" fill="#FBF6EB" stroke="#8B6914" stroke-width="1.2"/>
+        <!-- Вертикальная лента -->
+        <rect x="35" y="24" width="6" height="38" fill="#B8923D"/>
+        <!-- Бант -->
+        <path d="M 32 24 Q 30 18, 36 20 Q 38 22, 38 24 Q 38 22, 40 20 Q 46 18, 44 24" fill="#B8923D" stroke="#8B6914" stroke-width="0.8"/>
+        <!-- Центральный узел банта -->
+        <circle cx="38" cy="23" r="2" fill="#8B6914"/>
+        <!-- Замок шкатулки -->
+        <circle cx="38" cy="48" r="1.5" fill="#8B6914" opacity="0.6"/>
+      </svg>
+    </div>
+    
+    <div class="pay-upsell-eyebrow">ПОДОЖДИТЕ</div>
+    
+    <h2 class="pay-upsell-title" id="payUpsellTitle">У нас для вас <em>подарок</em></h2>
+    
+    <p class="pay-upsell-text" id="payUpsellText">
+      Прежде чем закрыть страницу — попробуйте <strong>бесплатно</strong> наш <span id="payUpsellOfferName">расклад на картах Таро</span>. Это займёт пару минут и поможет получить ответ на ваш важный вопрос.
+    </p>
+    
+    <button class="pay-upsell-cta" id="payUpsellCta">
+      <span id="payUpsellCtaText">Получить бесплатный расклад</span>
+      <span class="pay-upsell-cta-arrow">→</span>
+    </button>
+    
+    <button class="pay-upsell-dismiss" id="payUpsellDismiss">Я подумаю позже</button>
+  </div>
+</div>
+
+<!-- ============================================
+     SPEEDUP MODAL — ускорение портрета 3.99€
+     ============================================ -->
+<div class="speedup-backdrop" id="speedupBackdrop" role="dialog" aria-labelledby="speedupTitle" aria-hidden="true">
+  <div class="speedup-card" id="speedupCard">
+    <button class="speedup-close" id="speedupClose" aria-label="Закрыть">×</button>
+    
+    <!-- ============ ЭКРАН 1: ПРЕДЛОЖЕНИЕ ============ -->
+    <div class="speedup-step speedup-step-offer" id="speedupStepOffer">
+      <div class="speedup-timer-label">ОСТАЛОСЬ ЖДАТЬ</div>
+      <div class="speedup-timer-big" id="speedupTimerBig">
+        <svg class="speedup-timer-big-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <circle cx="12" cy="13" r="8"/>
+          <path d="M 12 9 L 12 13 L 15 15"/>
+          <path d="M 9 2 L 15 2 M 12 2 L 12 5"/>
+        </svg>
+        <span id="speedupTimerText">23:59:59</span>
+      </div>
+      
+      <h2 class="speedup-title" id="speedupTitle">Хотите узнать <em>раньше</em>?</h2>
+      
+      <p class="speedup-text">
+        Поставьте ваш заказ в <strong>приоритетную очередь</strong> — мы создадим портрет за <strong>30 минут</strong> вместо 24 часов.
+      </p>
+      
+      <button class="speedup-cta" id="speedupCta">
+        <span>Ускорить за</span>
+        <span class="speedup-cta-price">3,99 €</span>
+        <span class="speedup-cta-arrow">→</span>
+      </button>
+      
+      <button class="speedup-dismiss" id="speedupDismiss">Я подожду 24 часа</button>
+    </div>
+    
+    <!-- ============ ЭКРАН 2: ОПЛАТА ============ -->
+    <div class="speedup-step speedup-step-pay" id="speedupStepPay" style="display:none">
+      <button class="speedup-back-btn" id="speedupBackBtn" aria-label="Назад">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M 7 2 L 4 5.5 L 7 9"/></svg>
+        Назад
+      </button>
+      
+      <div class="speedup-pay-eyebrow">ОПЛАТА УСКОРЕНИЯ</div>
+      <h2 class="speedup-title">Приоритетная <em>очередь</em></h2>
+      
+      <!-- Чек -->
+      <div class="speedup-receipt">
+        <div class="speedup-receipt-row">
+          <span class="speedup-receipt-label">Услуга</span>
+          <span class="speedup-receipt-value">Ускорение портрета</span>
+        </div>
+        <div class="speedup-receipt-row">
+          <span class="speedup-receipt-label">Срок</span>
+          <span class="speedup-receipt-value">30 минут</span>
+        </div>
+        <div class="speedup-receipt-divider"></div>
+        <div class="speedup-receipt-row speedup-receipt-total">
+          <span class="speedup-receipt-label">К оплате</span>
+          <span class="speedup-receipt-value speedup-receipt-price">3,99 €</span>
+        </div>
+      </div>
+      
+      <!-- Поле карточки (демо) -->
+      <div class="speedup-card-fields">
+        <label class="speedup-field">
+          <span class="speedup-field-label">Номер карты</span>
+          <input type="text" id="speedupCardNumber" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="off"/>
+        </label>
+        <div class="speedup-field-row">
+          <label class="speedup-field">
+            <span class="speedup-field-label">MM / ГГ</span>
+            <input type="text" id="speedupCardExp" inputmode="numeric" placeholder="12 / 28" maxlength="7" autocomplete="off"/>
+          </label>
+          <label class="speedup-field">
+            <span class="speedup-field-label">CVC</span>
+            <input type="text" id="speedupCardCvc" inputmode="numeric" placeholder="123" maxlength="4" autocomplete="off"/>
+          </label>
+        </div>
+        <p class="speedup-pay-note">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="1.5"/><path d="M 8 10 L 8 7 Q 8 3 12 3 Q 16 3 16 7 L 16 10"/></svg>
+          Демо-режим. Реальная карта не будет списана.
+        </p>
+      </div>
+      
+      <button class="speedup-cta" id="speedupPayBtn">
+        <span>Оплатить</span>
+        <span class="speedup-cta-price">3,99 €</span>
+        <span class="speedup-cta-arrow">→</span>
+      </button>
+    </div>
+    
+    <!-- ============ ЭКРАН 3: УСПЕХ ============ -->
+    <div class="speedup-step speedup-step-success" id="speedupStepSuccess" style="display:none">
+      <div class="speedup-success-icon">
+        <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="30" cy="30" r="26" stroke-width="1.5" opacity="0.4"/>
+          <path d="M 18 30 L 27 39 L 42 23"/>
+        </svg>
+      </div>
+      <h2 class="speedup-title">Заказ <em>ускорен</em></h2>
+      <p class="speedup-text">
+        Портрет будет готов через <strong>30 минут</strong>. Мы пришлём уведомление, как только всё будет готово.
+      </p>
+      <button class="speedup-cta" id="speedupSuccessClose">
+        <span>Вернуться</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     TOAST AREA — правый нижний угол для уведомлений
+     ============================================ -->
+<div class="lovia-toast-area" id="loviaToastArea"></div>
+
+<!-- ============================================
+     ONBOARDING TOUR OVERLAY
+     ============================================ -->
+<div class="onboarding-overlay" id="onboardingOverlay" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle" aria-hidden="true">
+  <!-- SVG-маска для затемнения с "дыркой" -->
+  <svg class="onboarding-mask" id="onboardingMask" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <defs>
+      <mask id="onboardingCutout">
+        <rect width="100%" height="100%" fill="white"/>
+        <rect id="onboardingCutoutRect" rx="14" ry="14" fill="black" x="-1000" y="-1000" width="0" height="0"/>
+      </mask>
+    </defs>
+    <rect width="100%" height="100%" fill="rgba(61, 46, 26, 0.62)" mask="url(#onboardingCutout)"/>
+  </svg>
+  
+  <!-- Подсветка вокруг вырезанного элемента -->
+  <div class="onboarding-highlight" id="onboardingHighlight" style="display:none"></div>
+  
+  <!-- Tooltip-карточка -->
+  <div class="onboarding-tooltip" id="onboardingTooltip" data-arrow="top">
+    <button class="onboarding-close" id="onboardingClose" aria-label="Закрыть тур">×</button>
+    <div class="onboarding-step-counter" id="onboardingCounter">ШАГ 1 ИЗ 4</div>
+    <h3 class="onboarding-step-title" id="onboardingTitle">Заголовок шага</h3>
+    <p class="onboarding-step-text" id="onboardingText">Описание шага.</p>
+    <div class="onboarding-footer">
+      <div class="onboarding-dots" id="onboardingDots"></div>
+      <div class="onboarding-actions">
+        <button class="onboarding-btn onboarding-btn-skip" id="onboardingSkip">Пропустить</button>
+        <button class="onboarding-btn onboarding-btn-next" id="onboardingNext">Далее →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============================================
+     LOGIN MODAL — авторизация
+     ============================================ -->
+<div class="login-modal" id="loginModal" role="dialog" aria-labelledby="loginH">
+  <div class="login-card" style="position:relative">
+    <button class="login-close" id="loginClose" aria-label="Закрыть">×</button>
+
+    <!-- Шаг 1: выбор метода -->
+    <div class="login-step active" id="loginStep1">
+      <h2 class="login-h" id="loginH">Войдите в&nbsp;<em>Lovia</em></h2>
+      <p class="login-sub">Чтобы сохранять историю практик</p>
+
+      <button class="login-btn" id="loginGoogleBtn">
+        <svg class="google-icon" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.64 9.2c0-.63-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.83.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.93v2.32A9 9 0 0 0 9 18z" fill="#34A853"/>
+          <path d="M3.97 10.72A5.4 5.4 0 0 1 3.68 9c0-.6.1-1.18.29-1.72V4.96H.93A9 9 0 0 0 0 9c0 1.45.35 2.83.93 4.04l3.04-2.32z" fill="#FBBC04"/>
+          <path d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58A9 9 0 0 0 9 0 9 9 0 0 0 .93 4.96l3.04 2.32C4.68 5.16 6.66 3.58 9 3.58z" fill="#EA4335"/>
+        </svg>
+        Войти через Google
+      </button>
+
+      <button class="login-btn" id="loginPhoneBtn">
+        <svg class="phone-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+          <rect x="4" y="1" width="8" height="14" rx="1.5"/>
+          <line x1="4" y1="3" x2="12" y2="3"/>
+          <line x1="4" y1="12" x2="12" y2="12"/>
+          <circle cx="8" cy="13.5" r="0.6" fill="currentColor"/>
+        </svg>
+        Войти через телефон
+      </button>
+
+      <div class="login-divider">ИЛИ</div>
+
+      <button class="login-btn" id="loginDemoBtn" style="border-style:dashed">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" style="width:14px;height:14px;color:var(--accent-deep)"><path d="M 8 1 L 10 6 L 15 6 L 11 9 L 13 14 L 8 11 L 3 14 L 5 9 L 1 6 L 6 6 Z"/></svg>
+        Демо-вход (без авторизации)
+      </button>
+
+      <p class="login-hint">
+        Демо: данные хранятся только в&nbsp;памяти.<br/>
+        В&nbsp;продакшне — Supabase Auth + БД.
+      </p>
+    </div>
+
+    <!-- Шаг 2: телефон -->
+    <div class="login-step" id="loginStep2">
+      <button class="login-back" id="loginBackFromPhone">← Назад</button>
+      <h2 class="login-h">Ваш телефон</h2>
+      <p class="login-sub">Мы отправим код подтверждения</p>
+      <input type="tel" class="login-input" id="loginPhoneInput" placeholder="+380 99 123 45 67" autocomplete="tel" />
+      <button class="login-submit" id="loginPhoneSubmit">Отправить код</button>
+      <p class="login-hint">
+        Демо: <code>любой номер</code> + код <code>0000</code><br/>
+        В&nbsp;продакшне — SMS через Twilio/Vonage.
+      </p>
+    </div>
+
+    <!-- Шаг 3: код -->
+    <div class="login-step" id="loginStep3">
+      <button class="login-back" id="loginBackFromCode">← Назад</button>
+      <h2 class="login-h">Код из&nbsp;SMS</h2>
+      <p class="login-sub">Отправлен на&nbsp;<span id="loginPhoneShow">+380 99 ...</span></p>
+      <input type="text" class="login-input" id="loginCodeInput" placeholder="0000" inputmode="numeric" maxlength="4" style="text-align:center;letter-spacing:0.4em;font-size:22px" />
+      <button class="login-submit" id="loginCodeSubmit">Войти</button>
+      <p class="login-hint">Демо: введите <code>0000</code></p>
+    </div>
+
+    <!-- Шаг 4: Google email -->
+    <div class="login-step" id="loginStep4">
+      <button class="login-back" id="loginBackFromEmail">← Назад</button>
+      <h2 class="login-h">Ваш Gmail</h2>
+      <p class="login-sub">Войдите через Google-аккаунт</p>
+      <input type="email" class="login-input" id="loginEmailInput" placeholder="your@gmail.com" autocomplete="email" />
+      <button class="login-submit" id="loginEmailSubmit">Продолжить</button>
+      <p class="login-hint">
+        Демо: введите любой email<br/>
+        В&nbsp;продакшне — OAuth через Google Identity Services.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="assets/script0.js"></script>
+
+
+<script src="assets/script1.js"></script>
+
+</body>
+</html>
