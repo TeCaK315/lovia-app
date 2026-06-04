@@ -1,4 +1,16 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Lovia</title><style>html,body{margin:0;height:100%;background:#f4ede2}#f{border:0;width:100%;height:100%;display:block}#ld{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#8a7a55;font-family:-apple-system,system-ui,sans-serif;font-size:15px;padding:24px;text-align:center}</style></head><body><div id="ld">Загрузка…</div><iframe id="f" allow="camera;microphone;clipboard-write" hidden></iframe><script>
+var UA=navigator.userAgent||'';
+var isTG=/Telegram/i.test(UA)||(window.TelegramWebviewProxy!==undefined)||/\bTGWV\b/i.test(UA);
+var isIOS=/iP(hone|ad|od)/i.test(UA)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+if(isTG&&isIOS){
+  document.body.innerHTML='<div style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:32px;text-align:center;background:#f4ede2;color:#3d2e1a;font-family:-apple-system,system-ui,sans-serif">'
+  +'<div style="font-family:Georgia,serif;font-size:30px;letter-spacing:.14em">LOVIA</div>'
+  +'<div style="font-size:16px;line-height:1.55;max-width:300px;color:#6b5a3e">Для корректной работы откройте страницу в Safari:<br>нажмите <b>•••</b> вверху справа → <b>«Открыть в Safari»</b>.</div>'
+  +'<button id="cp" style="margin-top:6px;padding:14px 26px;border:0;border-radius:100px;background:linear-gradient(135deg,#c79b47,#a87f33);color:#fff;font-size:15px;letter-spacing:.04em;cursor:pointer">Скопировать ссылку</button>'
+  +'<div id="cpok" style="font-size:13px;color:#a87f33;min-height:16px"></div></div>';
+  var b=document.getElementById('cp');
+  if(b)b.onclick=function(){var u=location.href;try{navigator.clipboard.writeText(u);}catch(e){}var ok=document.getElementById('cpok');if(ok)ok.textContent='Ссылка скопирована ✓';};
+} else {
 var BASE=location.origin+location.pathname.replace(/[^/]*$/,'');
 var DBG="<scr"+"ipt>(function(){var NL=String.fromCharCode(10);function b(c){var d=document.getElementById('__e');if(!d){d=document.createElement('pre');d.id='__e';d.style.cssText='position:fixed;z-index:2147483647;left:0;right:0;top:0;max-height:75%;overflow:auto;margin:0;padding:10px;background:'+(c||'rgba(50,0,0,.96)')+';color:#ffe;font:12px/1.45 monospace;white-space:pre-wrap';document.documentElement.appendChild(d);}return d;}"
 +"addEventListener('error',function(e){var t=e.target;if(t&&(t.src||t.href)){b().textContent+='LOAD FAIL: '+(t.src||t.href)+NL;}else{b().textContent+='JS ERROR: '+e.message+'  @'+(e.filename||'')+':'+e.lineno+':'+e.colno+NL;}},true);"
@@ -13,4 +25,5 @@ fetch('assets/app.js',{cache:'no-store'})
    var ld=document.getElementById('ld'); if(ld) ld.remove();
  })
  .catch(function(e){ var ld=document.getElementById('ld'); if(ld) ld.textContent='Не удалось загрузить ('+e.message+').'; });
+}
 </script></body></html>
