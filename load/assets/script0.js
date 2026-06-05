@@ -4270,6 +4270,8 @@ function startCalculation() {
     document.body.style.overflow = '';
   }
 
+  // Открытие инфо-модалки по сообщению из welcome-iframe (ссылки Условия/Политика/Поддержка)
+  window.addEventListener('message', function(ev){ if(typeof ev.data==='string' && ev.data.indexOf('lovia_info:')===0){ try{ openInfoModal(ev.data.slice(11)); }catch(err){} } });
   // Делегированный клик на ссылки футера (включая социальные)
   document.addEventListener('click', function(e) {
     var trigger = e.target.closest('[data-info-topic]');
