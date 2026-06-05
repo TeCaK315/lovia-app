@@ -2953,17 +2953,16 @@ function startCalculation() {
              '</details>';
     }).join('') +
     // Сноска об отмене подписки — отдельная выноска под FAQ
-    '<aside class="pay-faq-note" aria-label="Отмена подписки">' +
-      '<div class="pay-faq-note-eyebrow">Важно · отмена подписки</div>' +
-      '<h3 class="pay-faq-note-title">Подписку можно отменить в любой момент — без звонков и переписок</h3>' +
-      '<p class="pay-faq-note-text">Если пробный период (3 дня за 0,50&nbsp;€) вам не подойдёт — отмените подписку, и больше с вас ничего не спишется. Отмена занимает один клик в личном кабинете и доступна 24/7.</p>' +
-      '<ol class="pay-faq-note-steps">' +
-        '<li>Личный кабинет → раздел <strong>«Подписка»</strong></li>' +
-        '<li>Кнопка <strong>«Отменить подписку»</strong></li>' +
-        '<li>Подтвердить — готово.</li>' +
-      '</ol>' +
-      '<button type="button" class="pay-faq-note-cta" data-info-topic="how-to-cancel">Подробная инструкция →</button>' +
-    '</aside>';
+    '<details class="pay-faq-item">' +
+      '<summary class="pay-faq-q">Как отменить подписку?</summary>' +
+      '<div class="pay-faq-a">Подписку можно отменить в любой момент — без звонков и переписок. Если пробный период (3 дня за 0,50&nbsp;€) вам не подойдёт, отмена занимает один клик в личном кабинете и доступна 24/7 — больше с вас ничего не спишется.' +
+        '<ol class="pay-faq-note-steps">' +
+          '<li>Личный кабинет → раздел <strong>«Подписка»</strong></li>' +
+          '<li>Кнопка <strong>«Отменить подписку»</strong></li>' +
+          '<li>Подтвердить — готово.</li>' +
+        '</ol>' +
+      '</div>' +
+    '</details>';
 
     // Запускаем таймер
     payStartTimer();

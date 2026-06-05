@@ -5083,6 +5083,7 @@
       padding: 32px 28px;
       gap: 28px;
     }
+    .pay-hero-illustration { display: none; }
     .pay-hero-heading { font-size: 32px; }
     .pay-grid {
       grid-template-columns: 1fr;
